@@ -1,5 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
 import {
+AssignmentExpr,
     BinaryExpr,
     Expr,
     Identifier,
@@ -101,7 +102,19 @@ import {
   
     // Handle expressions
     private parse_expr(): Expr {
-      return this.parse_additive_expr();
+      return this.parse_assignment_expr();
+    }
+
+    private parse_assignment_expr (): Expr {
+      const left = this.parse_additive_expr(); // switch out with objects
+
+      if (this.at().type == TokenType.Equals) {
+        this.eat(); // advance past equals
+        const value = this.parse_assignment_expr();
+        return { value, assigne: left, kind: "AssignmentExpr" } as AssignmentExpr;
+      }
+
+      return left;
     }
   
     // Handle Addition & Subtraction Operations
