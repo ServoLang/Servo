@@ -1,4 +1,5 @@
-![Logo](https://raw.githubusercontent.com/SuperScary/Servo/refs/heads/main/logos/servo-retro.png | width=250)
+<img src="https://raw.githubusercontent.com/SuperScary/Servo/refs/heads/main/logos/servo-retro.png" width="250" style="display: block; margin: 0 auto"/>
+
 # Servo Programming Language
 
 **Servo** is a high-level, object-oriented programming language designed for modern software development. With an emphasis on simplicity, scalability, and efficiency, Servo offers robust features to empower developers to write clean, maintainable, and performant code. Servo is versatile, supporting applications ranging from web development to complex system architectures.
