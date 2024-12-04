@@ -13,7 +13,7 @@
 - **Memory Safety**: Servo includes built-in safeguards against memory leaks and null-pointer dereferencing.
 - **Concurrency Made Easy**: First-class support for concurrent programming with lightweight threads and asynchronous operations.
 - **Cross-Platform Support**: Write code once and deploy it anywhere.
-- **Modern Syntax**: Inspired by popular languages like Python, Swift, and Kotlin, with an emphasis on readability and developer productivity.
+- **Modern Syntax**: Inspired by popular languages like Python, Swift, and Java, with an emphasis on readability and developer productivity.
 - **Built-In Testing Framework**: Integrated tools for writing, running, and debugging unit tests.
 - **Extensible Libraries**: A rich standard library and support for third-party package integrations.
 
@@ -25,24 +25,24 @@ Here’s a quick example of Servo’s syntax:
 
 ```servo
 // A simple "Hello, World!" program in Servo
-class Greeter {
+public class Greeter {
     // Property
-    let greeting: String
+    var greeting -> String;
 
     // Constructor
-    init(message: String) {
-        self.greeting = message
+    public Greeter (String message) {
+        this.greeting = message;
     }
 
     // Method
-    func sayHello() {
-        print(greeting)
+    public sayHello() -> Void {
+        print(greeting);
     }
 }
 
 // Create an instance of Greeter
-let greeter = Greeter(message: "Hello, World!")
-greeter.sayHello()
+let greeter = new Greeter("Hello, World!");
+greeter.sayHello();
 ```
 
 ---
@@ -79,8 +79,8 @@ greeter.sayHello()
 Servo supports both type inference and explicit type declarations:
 
 ```servo
-let inferredVar = 42      // Type inferred as Int
-let explicitVar: String = "Hello"
+let inferredVar = 42;      // Type inferred as Int
+let explicitVar -> String = "Hello";
 ```
 
 ### Classes and Objects
@@ -88,20 +88,20 @@ let explicitVar: String = "Hello"
 Servo uses a clean and modern approach to object-oriented programming:
 
 ```servo
-class Animal {
-    let name: String
+private class Animal {
+    private var name -> String;
 
-    init(name: String) {
-        self.name = name
+    private Animal (String name) {
+        this.name = name;
     }
 
-    func speak() {
-        print("\(name) makes a sound.")
+    private speak() -> Void {
+        print("\(name) makes a sound.");
     }
 }
 
-let dog = Animal(name: "Dog")
-dog.speak()
+let dog = new Animal("Dog");
+dog.speak();
 ```
 
 ### Asynchronous Programming
@@ -109,13 +109,13 @@ dog.speak()
 Servo makes asynchronous operations intuitive:
 
 ```servo
-async func fetchData() -> String {
-    await delay(2) // Simulates a delay of 2 seconds
-    return "Data fetched!"
+async fetchData() -> String {
+    await delay(2); // Simulates a delay of 2 seconds
+    return "Data fetched!";
 }
 
-let data = await fetchData()
-print(data)
+let data = await fetchData();
+print(data);
 ```
 
 ---
