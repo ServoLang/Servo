@@ -135,12 +135,12 @@ AssignmentExpr,
       return left;
     }
   
-    // Handle Multiplication, Division & Modulo Operations
+    // Handle Multiplication, Division, Pow & Modulo Operations
     private parse_multiplicitave_expr(): Expr {
       let left = this.parse_primary_expr();
   
       while (
-        this.at().value == "/" || this.at().value == "*" || this.at().value == "%"
+        this.at().value == "/" || this.at().value == "*" || this.at().value == "%" || this.at().value == "^"
       ) {
         const operator = this.eat().value;
         const right = this.parse_primary_expr();

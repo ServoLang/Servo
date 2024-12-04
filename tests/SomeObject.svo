@@ -1,0 +1,86 @@
+// This is a mock-up class to visualize how the code should look
+
+// Scope defines the file structure of the class. Relates to where the file exists within the folder structure.
+// Scope is required to exist in every file.
+scope some.file.path; 
+
+// Allows the class to access other definitions
+import some.other.path.OtherClass;
+import some.other.path.SomeOtherClass;
+
+// A class can be public, private, or protected. Not defining the scope will make the class default to protected.
+// Protected -> Cannot be accessed outside of its scope.
+// Private -> Can only be access within its contained scope.
+// Public -> Can be accessed anywhere.
+
+public class SomeClass with <OtherClass, SomeOtherClass> { // Allows class extensions to override parents.
+	
+	// var objects can hold any value and can be set at any time. Will always default to a null value until explicitly set.
+	private var privateObject -> Object; 
+
+	// Constants can be declared within a constructor or must be set at declaration. Constant values cannot change.
+	protected const protectedObject -> Object; 
+
+	// Object values will always default to null. Can be set at any time.
+	public Object publicObject -> Object; 
+	
+	// Constructor name must be the same as the class name. Constructors can be either protected, private, or public. 
+	// Not defining scope will cause it to default to protected.
+	public SomeClass (Object publicObject) {
+		this.privateObject = new Object();
+		this.protectedObject = protectedObject("Protected value");
+		this.publicObject = publicObject;
+	}
+	
+	// Method declarations must have their scope explicitly stated. 
+	protected protectedObject (String value) -> Object {
+		// Object defined methods must have a return type
+		return if value != null then new Object(value) else throw new Exception("Value of ${value} is null.");
+	}
+
+	// Voids do not return anything
+	private privateCode () -> Void {
+
+		// defines a var that can only be of a boolean value. Not setting a boolean value will cause it to default to null. (true | false | null)
+		var doSomething -> boolean = false;
+
+		// defines a var that is of the same type and value as protectedObject.
+		var scopeObject -> this.protectedObject;
+
+		// defines a var that may only contain a string value. 
+		var outputString -> String = "Final output: ${}";
+
+		// A number assignment must be either a num, var, or const. num only allows integers or floating point integers.
+		num testNumber = 0;
+
+		while (scopeObject != null) {
+			if (doSomething) {
+				testNumber++;
+				if (testNumber >= 100) doSomething = false;
+			} else {
+				print(outputString.with(testNumber));
+				scopeObject = null;
+			}
+		}
+
+		print("Broke while loop after ${} iterations.".with(testNumber));
+	}
+
+	// A publicly accessable void that can be accessed anywhere without having to declare a new object.
+	// Static methods do not allow scoped calls and will throw a NullPointer if attempting to access objects outside of its scope.
+	public static print (Object object) -> Void {
+		Console.log(object.string());
+	}
+
+	// Nested classes will automatically inherit from their parent class.
+	private class NestedClass {
+
+		// Constructors do not have to match that of their parent.
+		private NestedClass () {
+			// Inheriting from a parent still requires all constructor methods to be satisfied.
+			super(new Object());
+		}
+
+	}
+	
+}

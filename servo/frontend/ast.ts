@@ -47,7 +47,7 @@ export interface Expr extends Stmt {}
 /**
  * A operation with two sides seperated by a operator.
  * Both sides can be ANY Complex Expression.
- * - Supported Operators -> + | - | / | * | %
+ * - Supported Operators -> + | - | / | * | % | ^
  */
 export interface BinaryExpr extends Expr {
   kind: "BinaryExpr";

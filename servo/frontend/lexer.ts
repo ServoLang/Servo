@@ -85,7 +85,7 @@ export enum TokenType {
       } // HANDLE BINARY OPERATORS
       else if (
         src[0] == "+" || src[0] == "-" || src[0] == "*" || src[0] == "/" ||
-        src[0] == "%"
+        src[0] == "%" || src[0] == "^"
       ) {
         tokens.push(token(src.shift(), TokenType.BinaryOperator));
       } // Handle Conditional & Assignment Tokens
