@@ -1,24 +1,34 @@
 import Parser from "./frontend/parser.ts";
-import Environment from "./runtime/environment.ts";
+import { createGlobalEnv } from "./runtime/environment.ts";
 import { evaluate } from "./runtime/interpreter.ts";
 
-repl();
+//repl();
+run("./tests/test.svo");
 
-function repl () {
+async function run (filename: string) {
     const parser = new Parser();
-    const env = new Environment();
-    env.declareDefaultVars(env);
+    const env = createGlobalEnv();
+    
+    const input = await Deno.readTextFile(filename);
+    const program = parser.produceAST(input);
+    const result = evaluate(program, env);
+    console.log(result);
+}
 
-    console.log("\nServo-Repl v0.0.1");
-    while (true) {
-        const input = prompt("> ");
-        // Exit
-        if (!input || input.includes("exit")) {
-            Deno.exit(1);
-        }
+function repl() {
+  const parser = new Parser();
+  const env = createGlobalEnv();
 
-        const program = parser.produceAST(input);
-        const result = evaluate(program, env);
-        console.log(result);
+  console.log("\nRepl v0.0.1");
+
+  while (true) {
+    const input = prompt("> ");
+    if (!input || input.includes("exit")) {
+        Deno.exit(1);
     }
+
+    const program = parser.produceAST(input);
+    const result = evaluate(program, env);
+    console.log(result);
+  }
 }
