@@ -1,4 +1,7 @@
-let foo = 5 * 2;
-foo = foo / 4 + 5
+void pow (x, y) {
+    x ^ y
+}
 
-print(foo)
+const result = pow(2, 3);
+
+print(result)

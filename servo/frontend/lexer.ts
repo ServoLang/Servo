@@ -1,4 +1,3 @@
-// https://github.com/tlaceby/guide-to-interpreters-series
 // -----------------------------------------------------------
 // ---------------          LEXER          -------------------
 // ---  Responsible for producing tokens from the source   ---
@@ -10,8 +9,35 @@ export enum TokenType {
   Number,
   Identifier,
   // Keywords
+  Var,
   Let,
   Const,
+  Num,
+  String,
+  New,
+  Throw,
+  Optional,
+
+  Scope,
+  Class,
+  With,
+  Super,
+
+  Public,
+  Private,
+  Protected,
+  Void, // empty return type function
+  Return,
+  Async,
+
+  // Turing Operators
+  If,
+  Then,
+  Else,
+  For,
+  While,
+  Do,
+  Break,
 
   // Grouping * Operators
   BinaryOperator,
@@ -26,6 +52,8 @@ export enum TokenType {
   CloseBrace,
   OpenBracket,
   CloseBracket,
+  LessThan,
+  GreaterThan,
   EOF, // Signified the end of file
 }
 
@@ -35,6 +63,32 @@ export enum TokenType {
 const KEYWORDS: Record<string, TokenType> = {
   let: TokenType.Let,
   const: TokenType.Const,
+  var: TokenType.Var,
+  num: TokenType.Num, // unimplemented
+  string: TokenType.String,  // unimplemented
+  new: TokenType.New, // unimplemented
+  throw: TokenType.Throw, // unimplemented
+  optional: TokenType.Optional,  // unimplemented
+
+  scope: TokenType.Scope, // unimplemented
+  class: TokenType.Class, // unimplemented
+  with: TokenType.With, // unimplemented
+  super: TokenType.Super, // unimplemented
+
+  public: TokenType.Public, // unimplemented
+  private: TokenType.Private, // unimplemented
+  protected: TokenType.Protected, // unimplemented
+  void: TokenType.Void,
+  return: TokenType.Return, // unimplemented
+  async: TokenType.Async,  // unimplemented
+
+  if: TokenType.If, // unimplemented
+  then: TokenType.Then, // unimplemented
+  else: TokenType.Else, // unimplemented
+  for: TokenType.For, // unimplemented
+  while: TokenType.While, // unimplemented
+  do: TokenType.Do, // unimplemented
+  break: TokenType.Break, // unimplemented
 };
 
 // Reoresents a single token from the source-code.
@@ -98,10 +152,7 @@ export function tokenize(sourceCode: string): Token[] {
     } else if (src[0] == "]") {
       tokens.push(token(src.shift(), TokenType.CloseBracket));
     } // HANDLE BINARY OPERATORS
-    else if (
-      src[0] == "+" || src[0] == "-" || src[0] == "*" || src[0] == "/" ||
-      src[0] == "%"
-    ) {
+    else if (src[0] == "+" || src[0] == "-" || src[0] == "*" || src[0] == "/" || src[0] == "%" || src[0] == "^") {
       tokens.push(token(src.shift(), TokenType.BinaryOperator));
     } // Handle Conditional & Assignment Tokens
     else if (src[0] == "=") {
@@ -114,6 +165,10 @@ export function tokenize(sourceCode: string): Token[] {
       tokens.push(token(src.shift(), TokenType.Comma));
     } else if (src[0] == ".") {
       tokens.push(token(src.shift(), TokenType.Dot));
+    } else if (src[0] == "<") {
+      tokens.push(token(src.shift(), TokenType.LessThan));
+    } else if (src[0] == ">") {
+      tokens.push(token(src.shift(), TokenType.GreaterThan));
     } // HANDLE MULTICHARACTER KEYWORDS, TOKENS, IDENTIFIERS ETC...
     else {
       // Handle numeric literals -> Integers

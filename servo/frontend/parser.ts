@@ -12,6 +12,7 @@ import {
   Property,
   Stmt,
   VarDeclaration,
+  FunctionDeclaration,
 } from "./ast.ts";
 
 import { Token, tokenize, TokenType } from "./lexer.ts";
@@ -80,9 +81,40 @@ export default class Parser {
       case TokenType.Let:
       case TokenType.Const:
         return this.parse_var_declaration();
+      case TokenType.Void:
+        return this.parse_fn_declaration();
       default:
         return this.parse_expr();
     }
+  }
+  
+  private parse_fn_declaration(): Stmt {
+    this.eat(); // eat declaration keyword
+    const name = this.expect(TokenType.Identifier, "Expected function name following declaration type keyword.").value;
+    const args = this.parse_args();
+    const params: string[] = [];
+
+    for (const arg of args) {
+      if (arg.kind !== "Identifier") {
+        console.log(arg);
+        throw `Inside function declaration expected parameters to be of type string.`;
+      }
+
+      params.push((arg as Identifier).symbol);
+    }
+
+    this.expect(TokenType.OpenBrace, "Expected function body following function declaration.");
+
+    const body: Stmt[] = [];
+
+    while (this.at().type !== TokenType.EOF && this.at().type !== TokenType.CloseBrace) { // is this intended?
+      body.push(this.parse_stmt());
+    }
+
+    this.expect(TokenType.CloseBrace, "Expected closure of function declaration.");
+    const fn = { body, name, parameters: params, kind: "FunctionDeclaration" } as FunctionDeclaration;
+
+    return fn;
   }
 
   // LET IDENT;
@@ -107,10 +139,7 @@ export default class Parser {
       } as VarDeclaration;
     }
 
-    this.expect(
-      TokenType.Equals,
-      "Expected equals token following identifier in var declaration.",
-    );
+    this.expect(TokenType.Equals,"Expected equals token following identifier in var declaration.",);
 
     const declaration = {
       kind: "VarDeclaration",
@@ -205,13 +234,11 @@ export default class Parser {
     return left;
   }
 
-  // Handle Multiplication, Division & Modulo Operations
+  // Handle Multiplication, Division, Power of & Modulo Operations
   private parse_multiplicitave_expr(): Expr {
     let left = this.parse_call_member_expr();
 
-    while (
-      this.at().value == "/" || this.at().value == "*" || this.at().value == "%"
-    ) {
+    while (this.at().value == "/" || this.at().value == "*" || this.at().value == "%" || this.at().value == "^") {
       const operator = this.eat().value;
       const right = this.parse_call_member_expr();
       left = {

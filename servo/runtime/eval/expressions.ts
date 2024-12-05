@@ -1,13 +1,10 @@
-import { AssignmentExpr, BinaryExpr, Identifier, ObjectLiteral } from "../../frontend/ast.ts";
+import { AssignmentExpr, BinaryExpr, CallExpr, Identifier, ObjectLiteral } from "../../frontend/ast.ts";
 import Environment from "../environment.ts";
 import { evaluate } from "../interpreter.ts";
-import { MK_NULL, NumberVal, ObjectVal, RuntimeVal } from "../values.ts";
+import { FunctionValue, MK_NULL, NativeFnValue, NumberVal, ObjectVal, RuntimeVal } from "../values.ts";
 
-function eval_numeric_binary_expr(
-  lhs: NumberVal,
-  rhs: NumberVal,
-  operator: string,
-): NumberVal {
+// DO BINARY MATHEMATICS OPERATIONS
+function eval_numeric_binary_expr(lhs: NumberVal, rhs: NumberVal, operator: string): NumberVal {
   let result: number;
   if (operator == "+") {
     result = lhs.value + rhs.value;
@@ -18,6 +15,8 @@ function eval_numeric_binary_expr(
   } else if (operator == "/") {
     // TODO: Division by zero checks
     result = lhs.value / rhs.value;
+  } else if (operator == "^") {
+    result = Math.pow(lhs.value, rhs.value);
   } else {
     result = lhs.value % rhs.value;
   }
@@ -78,4 +77,39 @@ export function eval_object_expr (obj: ObjectLiteral, env: Environment): Runtime
   }
 
   return object;
+}
+
+export function eval_call_expr (expr: CallExpr, env: Environment): RuntimeVal {
+  const args = expr.args.map((arg) => evaluate(arg, env));
+  const fn = evaluate(expr.caller, env);
+
+  if (fn.type == "native-fn") {
+    const result = (fn as NativeFnValue).call(args, env);
+    return result;
+  } 
+  
+  if (fn.type == "function") {
+    const func = fn as FunctionValue;
+    const scope = new Environment(func.declarationEnv);
+
+    // create variables for the parameters list
+    for (let i = 0; i < func.parameters.length; i++) {
+      // TODO: check the bounds here.
+      // verify arity of function.
+      const varname = func.parameters[i];
+      scope.declareVar(varname, args[i], false); // false = prevent assignment into a constructor
+    }
+
+    let result: RuntimeVal = MK_NULL();
+
+    // evaluate the function body line by line
+    for (const stmt of func.body) {
+      result = evaluate(stmt, scope);
+    }
+
+    return result;
+  }
+
+  throw `Cannot call value that is not a function: ${JSON.stringify(fn)}`;
+
 }
