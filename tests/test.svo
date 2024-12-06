@@ -1,7 +1,5 @@
-void pow (x, y) {
-    x ^ y
+function makeAdder (x, y) -> Void {
+  x + y
 }
 
-const result = pow(2, 3);
-
-print(result)
+print(makeAdder(10, 5));

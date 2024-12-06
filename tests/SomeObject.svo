@@ -33,13 +33,13 @@ public class SomeClass with <OtherClass, SomeOtherClass> { // Allows class exten
 	}
 	
 	// Method declarations must have their scope explicitly stated. 
-	protected protectedObject (String value) -> Object {
+	protected function protectedObject (String value) -> Object {
 		// Object defined methods must have a return type
 		return if value != null then new Object(value) else throw new Exception("Value of ${value} is null.");
 	}
 
 	// Voids do not return anything
-	private privateCode () -> Void {
+	private function privateCode () -> Void {
 
 		// defines a var that can only be of a boolean value. Not setting a boolean value will cause it to default to null. (true | false | null)
 		var doSomething -> boolean = false;
@@ -58,18 +58,18 @@ public class SomeClass with <OtherClass, SomeOtherClass> { // Allows class exten
 				testNumber++;
 				if (testNumber >= 100) doSomething = false;
 			} else {
-				print(outputString.with(testNumber));
+				print(outputString.include(testNumber));
 				scopeObject = null;
 			}
 		}
 
-		print("Broke while loop after ${} iterations.".with(testNumber));
+		print("Broke while loop after ${} iterations.".include(testNumber));
 	}
 
 	// A publicly accessable void that can be accessed anywhere without having to declare a new object.
 	// Static methods do not allow scoped calls and will throw a NullPointer if attempting to access objects outside of its scope.
-	public static print (Object object) -> Void {
-		Console.log(object.string());
+	public static function print (Object object) -> Void {
+		Console.log(object.asString());
 	}
 
 	// Nested classes will automatically inherit from their parent class.

@@ -1,0 +1,8 @@
+<component name="CopyrightManager">
+  <settings>
+    <module2copyright>
+      <element module="All" copyright="Servo Copyright" />
+    </module2copyright>
+    <LanguageOptions name="TypeScript" />
+  </settings>
+</component>
