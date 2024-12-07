@@ -26,28 +26,28 @@
 // -----------------------------------------------------------
 
 export type NodeType =
-  // STATEMENTS
-  | "Program"
-  | "VarDeclaration"
-  | "FunctionDeclaration"
-  | "AccessDeclaration"
-  // EXPRESSIONS
-  | "AssignmentExpr"
-  | "MemberExpr"
-  | "CallExpr"
-
-  // LITERALS
-  | "Property"
-  | "ObjectLiteral"
-  | "NumericLiteral"
-  | "Identifier"
-  | "BinaryExpr";
+    // STATEMENTS
+    | "Program"
+    | "VarDeclaration"
+    | "FunctionDeclaration"
+    | "AccessDeclaration"
+    // EXPRESSIONS
+    | "AssignmentExpr"
+    | "MemberExpr"
+    | "CallExpr"
+    // LITERALS
+    | "Property"
+    | "ObjectLiteral"
+    | "NumericLiteral"
+    | "StringLiteral"
+    | "Identifier"
+    | "BinaryExpr";
 
 /**
  * Statements do not result in a value at runtime.
  They contain one or more expressions internally */
 export interface Statement {
-  kind: NodeType;
+    kind: NodeType;
 }
 
 /**
@@ -55,26 +55,26 @@ export interface Statement {
  * -  Only one program will be contained in a file.
  */
 export interface Program extends Statement {
-  kind: "Program";
-  body: Statement[];
+    kind: "Program";
+    body: Statement[];
 }
 
 export interface VarDeclaration extends Statement {
-  kind: "VarDeclaration";
-  constant: boolean;
-  identifier: string;
-  value?: Expression;
+    kind: "VarDeclaration";
+    constant: boolean;
+    identifier: string;
+    value?: Expression;
 }
 
 export interface FunctionDeclaration extends Statement {
-  kind: "FunctionDeclaration";
-  parameters: string[]; // THIS PREVENTS NEEDING TO GIVE PARAMETERS A VALUE IN A METHOD
-  name: string;
-  body: Statement[];
-  protected?: boolean;
-  private?: boolean;
-  public?: boolean;
-  async?: boolean;
+    kind: "FunctionDeclaration";
+    parameters: string[]; // THIS PREVENTS NEEDING TO GIVE PARAMETERS A VALUE IN A METHOD
+    name: string;
+    body: Statement[];
+    protected?: boolean;
+    private?: boolean;
+    public?: boolean;
+    async?: boolean;
 }
 
 /**
@@ -93,9 +93,9 @@ export interface AccessDeclaration extends Statement {
 export interface Expression extends Statement {}
 
 export interface AssignmentExpr extends Expression {
-  kind: "AssignmentExpr";
-  assigne: Expression;
-  value: Expression;
+    kind: "AssignmentExpr";
+    assigne: Expression;
+    value: Expression;
 }
 
 /**
@@ -104,23 +104,23 @@ export interface AssignmentExpr extends Expression {
  * - Supported Operators -> + | - | / | * | % | ^
  */
 export interface BinaryExpr extends Expression {
-  kind: "BinaryExpr";
-  left: Expression;
-  right: Expression;
-  operator: string; // needs to be of type BinaryOperator
+    kind: "BinaryExpr";
+    left: Expression;
+    right: Expression;
+    operator: string; // needs to be of type BinaryOperator
 }
 
 export interface CallExpr extends Expression {
-  kind: "CallExpr";
-  args: Expression[];
-  caller: Expression;
+    kind: "CallExpr";
+    args: Expression[];
+    caller: Expression;
 }
 
 export interface MemberExpr extends Expression {
-  kind: "MemberExpr";
-  object: Expression;
-  property: Expression;
-  computed: boolean;
+    kind: "MemberExpr";
+    object: Expression;
+    property: Expression;
+    computed: boolean;
 }
 
 // LITERAL / PRIMARY EXPRESSION TYPES
@@ -128,25 +128,30 @@ export interface MemberExpr extends Expression {
  * Represents a user-defined variable or symbol in source.
  */
 export interface Identifier extends Expression {
-  kind: "Identifier";
-  symbol: string;
+    kind: "Identifier";
+    symbol: string;
 }
 
 /**
  * Represents a numeric constant inside the source code.
  */
 export interface NumericLiteral extends Expression {
-  kind: "NumericLiteral";
-  value: number;
+    kind: "NumericLiteral";
+    value: number;
+}
+
+export interface StringLiteral extends Expression {
+    kind: "StringLiteral";
+    value: string;
 }
 
 export interface Property extends Expression {
-  kind: "Property";
-  key: string,
-  value?: Expression,
+    kind: "Property";
+    key: string;
+    value?: Expression;
 }
 
 export interface ObjectLiteral extends Expression {
-  kind: "ObjectLiteral";
-  properties: Property[];
+    kind: "ObjectLiteral";
+    properties: Property[];
 }

@@ -1,3 +1,4 @@
+// deno-lint-ignore-file
 import { FunctionDeclaration, Statement } from "../frontend/AST.ts";
 import Environment from "./Environment.ts";
 
@@ -12,6 +13,7 @@ export type ValueType =
 
 export interface RuntimeValue {
     type: ValueType;
+    value?: any;
 }
 
 /**

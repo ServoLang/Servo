@@ -1,5 +1,7 @@
 function makeAdder (x, y) -> Void {
-  x + y
+    x + y
 }
 
-print(makeAdder(10, 5));
+var obj = 'Hello, World!'
+
+print(obj)

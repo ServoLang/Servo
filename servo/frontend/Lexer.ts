@@ -81,7 +81,13 @@ export enum TokenType {
   CloseBracket,
   LessThan,
   GreaterThan,
+  DoubleQuote,
+  Quote,
+  Grave,
+  Tilde,
+  Exclamation,
   EOF, // Signified the end of file
+  Unknown,
 }
 
 /**
@@ -162,6 +168,40 @@ function isInt (str: string) {
   return c >= bounds[0] && c <= bounds[1];
 }
 
+function tokenFor (str: string): TokenType {
+  let c: TokenType = TokenType.Unknown;
+  switch (str) {
+    case '"': {
+      c = TokenType.DoubleQuote;
+      break;
+    }
+    case "`": {
+      c = TokenType.Grave;
+      break;
+    }
+    case "'": {
+      c = TokenType.Quote;
+      break;
+    }
+  }
+    return c;
+}
+
+function pushString (quote: string, src: string[], tokens: Token[]): Token {
+  console.log(tokens);
+  let str = "";
+  src.shift(); // Skip the opening quote.
+  while (src.length > 0 && src[0] != quote) {
+    str += src.shift();
+  }
+
+  console.log(`String: ${str}`);
+  let temp = "";
+  temp += src.shift();// Skip the closing quote.
+  tokens.push(token(temp, tokenFor(temp)));
+  return token(str, TokenType.String);
+}
+
 /**
  * Given a string representing source code: Produce tokens and handles
  * possible unidentified characters.
@@ -214,6 +254,13 @@ export function tokenize (sourceCode: string): Token[] {
       tokens.push(token(src.shift(), TokenType.LessThan));
     } else if (src[0] == ">") {
       tokens.push(token(src.shift(), TokenType.GreaterThan));
+    } else if (src[0] == "\"" || src[0] == "'" || src[0] == "`") {
+      tokens.push(token(src[0], tokenFor(src[0])));
+      if (src[1] != ";") tokens.push(pushString(src[0], src, tokens));
+    } else if (src[0] == "~") {
+      tokens.push(token(src.shift(), TokenType.Tilde));
+    } else if (src[0] == "!") {
+      tokens.push(token(src.shift(), TokenType.Exclamation));
     } // HANDLE MULTICHARACTER KEYWORDS, TOKENS, IDENTIFIERS ETC...
     else {
       // Handle numeric literals -> Integers
@@ -225,7 +272,8 @@ export function tokenize (sourceCode: string): Token[] {
 
         // append new numeric token.
         tokens.push(token(num, TokenType.Number));
-      } // Handle Identifier & Keyword Tokens.
+      }
+      // Handle Identifier & Keyword Tokens.
       else if (isAlpha(src[0])) {
         let ident = "";
         while (src.length > 0 && isAlpha(src[0])) {

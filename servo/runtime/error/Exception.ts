@@ -53,8 +53,8 @@ export class Exception extends Error {
     }
 
     public exit (): Exception {
-        if (this.getType().valueOf() == 0) console.error(`Error: ${this.message}`);
-        else console.log(`Finished with exit code: (${this.getExitCode()})`);
+        if (this.getType().valueOf() == 1) console.error(`Error: ${this.message}`);
+        else console.log(`Finished with exit code: ${this.getExitCode()}`);
         Deno.exit(this.getExitCode());
     }
 

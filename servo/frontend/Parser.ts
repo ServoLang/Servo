@@ -21,7 +21,7 @@
  */
 
 // deno-lint-ignore-file no-explicit-any
-import { AccessDeclaration, AssignmentExpr, BinaryExpr, CallExpr, Expression, FunctionDeclaration, Identifier, MemberExpr, NumericLiteral, ObjectLiteral, Program, Property, Statement, VarDeclaration } from "./AST.ts";
+import { AccessDeclaration, AssignmentExpr, BinaryExpr, CallExpr, Expression, FunctionDeclaration, Identifier, MemberExpr, NumericLiteral, ObjectLiteral, Program, Property, Statement, StringLiteral, VarDeclaration } from "./AST.ts";
 
 import { Token, tokenize, TokenType } from "./Lexer.ts";
 
@@ -88,8 +88,8 @@ export default class Parser {
 				return this.parseVariableDeclaration();
 			case TokenType.Num:
 				return this.parseNumberDeclaration();
-			case TokenType.String:
-				return this.parseStringDeclaration();
+			//case TokenType.String:
+				//return this.parseStringDeclaration();
 			case TokenType.Public:
 			case TokenType.Private:
 			case TokenType.Protected:
@@ -189,8 +189,15 @@ export default class Parser {
 		}
 
 		this.expect(TokenType.Equals, "Expected equals token following identifier in num declaration.",);
+		const beginningToken = this.expect(TokenType.Tilde | TokenType.Quote | TokenType.DoubleQuote, "Expected a string value following equals token.").value;
 		const declaration = { kind: "VarDeclaration", value: this.parseExpression(), identifier, constant: false } as VarDeclaration;
-		this.expect(TokenType.Semicolon,"Variable declaration statement must end with semicolon.",);
+		const endingToken = this.expect(TokenType.Tilde | TokenType.Quote | TokenType.DoubleQuote, "Expected a string value following equals token.").value;
+		this.expect(TokenType.Semicolon,"Variable declaration statement must end with semicolon.");
+
+		if (beginningToken != endingToken) {
+			throw `String declaration must be closed with the same token as it was opened with. Expected ${beginningToken} but found ${endingToken}.`;
+		}
+
 		return declaration;
 	}
 
@@ -306,6 +313,7 @@ export default class Parser {
 		return args;
 	}
 
+	// TODO: Handle types of arguments instead of undefined list.
 	private parseArgumentsList(): Expression[] {
 		const args = [this.parseAssignmentExpression()];
 
@@ -363,14 +371,16 @@ export default class Parser {
 		switch (tk) {
 			// User defined values.
 			case TokenType.Identifier: {
-				const id = { kind: "Identifier", symbol: this.eat().value } as Identifier;
-				return id;
+				return { kind: "Identifier", symbol: this.eat().value } as Identifier;
 			}
 
 			// Constants and Numeric Constants
 			case TokenType.Number: {
-				const num = { kind: "NumericLiteral", value: parseFloat(this.eat().value) } as NumericLiteral;
-				return num;
+				return { kind: "NumericLiteral", value: parseFloat(this.eat().value) } as NumericLiteral;
+			}
+
+			case TokenType.String: {
+				return { kind: "StringLiteral", value: this.eat().value } as StringLiteral;
 			}
 
 			// Grouping Expressions

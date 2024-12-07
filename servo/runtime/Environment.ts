@@ -32,7 +32,7 @@ export function createGlobalEnv (): Environment {
 
   // Define native methods
   env.declareVariable("print", MK_NATIVE_FN((args, scope) => {
-    console.log(...args);
+    console.log(args[0].value);
     return MK_NULL();
   }), true);
 
