@@ -6,6 +6,7 @@ type TokenKind int
 
 const (
 	EOF TokenKind = iota
+	EOL TokenKind = iota
 	NULL
 	NUMBER
 	STRING
@@ -73,6 +74,8 @@ const (
 	EXPORT
 	TYPEOF
 	IN
+	STRUCT
+	STATIC
 )
 
 var reservedLookup = map[string]TokenKind{
@@ -91,6 +94,11 @@ var reservedLookup = map[string]TokenKind{
 	"export":  EXPORT,
 	"typeof":  TYPEOF,
 	"in":      IN,
+	"struct":  STRUCT,
+	"static":  STATIC,
+	"true":    TRUE,
+	"false":   FALSE,
+	"null":    NULL,
 }
 
 type Token struct {
@@ -111,7 +119,7 @@ func (token Token) Debug() {
 	if token.isOneOfMany(IDENTIFIER, NUMBER, STRING) {
 		fmt.Printf("%s (%s)\n", TokenKindString(token.Kind), token.Value)
 	} else {
-		fmt.Printf("%s ()\n", TokenKindString(token.Kind))
+		fmt.Printf("%s (null)\n", TokenKindString(token.Kind))
 	}
 }
 
@@ -123,6 +131,8 @@ func TokenKindString(kind TokenKind) string {
 	switch kind {
 	case EOF:
 		return "eof"
+	case EOL:
+		return "eol"
 	case NULL:
 		return "null"
 	case NUMBER:
@@ -247,6 +257,10 @@ func TokenKindString(kind TokenKind) string {
 		return "typeof"
 	case IN:
 		return "in"
+	case STRUCT:
+		return "struct"
+	case STATIC:
+		return "static"
 	default:
 		return fmt.Sprintf("unknown(%d)", kind)
 	}

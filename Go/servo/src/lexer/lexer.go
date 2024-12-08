@@ -79,10 +79,13 @@ func defaultHandler(kind TokenKind, value string) regexHandler {
 func createLexer(source string) *lexer {
 	return &lexer{pos: 0, source: source, Tokens: make([]Token, 0), patterns: []regexPattern{
 		{regexp.MustCompile(`\s+`), skipHandler},
+		{regexp.MustCompile(`\r?\n`), newLineHandler},
+		{regexp.MustCompile("/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/"), skipHandler},
 		{regexp.MustCompile(`//.*`), skipHandler},
 		{regexp.MustCompile(`"[^"]*"`), stringHandler},
 		{regexp.MustCompile(`[0-9]+(\.[0-9]+)?`), numberHandler},
 		{regexp.MustCompile(`[a-zA-Z_][a-zA-Z0-9_]*`), symbolHandler},
+
 		{regexp.MustCompile(`\[`), defaultHandler(OPEN_BRACKET, "[")},
 		{regexp.MustCompile(`]`), defaultHandler(CLOSE_BRACKET, "]")},
 		{regexp.MustCompile(`\{`), defaultHandler(OPEN_CURLY, "{")},
@@ -107,7 +110,7 @@ func createLexer(source string) *lexer {
 		{regexp.MustCompile(`\.\.`), defaultHandler(DOT_DOT, "..")},
 		{regexp.MustCompile(`;`), defaultHandler(SEMI_COLON, ";")},
 		{regexp.MustCompile(`:`), defaultHandler(COLON, ":")},
-		//{regexp.MustCompile(`\?\?=`), defaultHandler(NULLISH_ASSIGNMENT, "??=")},
+		// {regexp.MustCompile(`\?\?=`), defaultHandler(NULLISH_ASSIGNMENT, "??=")},
 		{regexp.MustCompile(`\?`), defaultHandler(QUESTION, "?")},
 		{regexp.MustCompile(`,`), defaultHandler(COMMA, ",")},
 
@@ -127,6 +130,12 @@ func createLexer(source string) *lexer {
 		{regexp.MustCompile(`^`), defaultHandler(POW, "^")},
 		{regexp.MustCompile(`%`), defaultHandler(PERCENT, "%")},
 	}}
+}
+
+func newLineHandler(lex *lexer, regex *regexp.Regexp) {
+	value := regex.FindString(lex.remainder())
+	lex.push(NewToken(EOL, "EOL"))
+	lex.advanceN(len(value))
 }
 
 func skipHandler(lex *lexer, regex *regexp.Regexp) {

@@ -35,27 +35,42 @@ func (n SymbolExpr) expr() {}
 // ===================================================================================================================\\
 
 type BinaryExpr struct {
-	Left     Expr
+	Left     Expression
 	Operator lexer.Token
-	Right    Expr
+	Right    Expression
 }
 
 func (n BinaryExpr) expr() {}
 
 type PrefixExpr struct {
 	Operator  lexer.Token
-	RightExpr Expr
+	RightExpr Expression
 }
 
 func (n PrefixExpr) expr() {}
 
 type AssignmentExpr struct {
-	Assignee Expr
+	Assignee Expression
 	Operator lexer.Token
-	Value    Expr
+	Value    Expression
 }
 
 func (n AssignmentExpr) expr() {}
+
+type StructInstantiationExpr struct {
+	StructName string
+	Properties map[string]Expression
+}
+
+func (n StructInstantiationExpr) expr() {}
+
+type ArrayInstantiationExpr struct {
+	Underlying Type
+	Length     Expression
+	Contents   []Expression
+}
+
+func (n ArrayInstantiationExpr) expr() {}
 
 // ===================================================================================================================\\
 // END COMPLEX EXPRESSIONS

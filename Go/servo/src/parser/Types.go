@@ -7,62 +7,61 @@ import (
 )
 
 type type_nud_handler func(p *parser) ast.Type
-type type_led_handler func(p *parser, left ast.Type, bp binding_power) ast.Type
+type type_led_handler func(p *parser, left ast.Type, bp BindingPower) ast.Type
 
 type type_nud_lookup map[lexer.TokenKind]type_nud_handler
 type type_led_lookup map[lexer.TokenKind]type_led_handler
-type type_bp_lookup map[lexer.TokenKind]binding_power
+type type_bp_lookup map[lexer.TokenKind]BindingPower
 
 // Lookup tables
 var type_bp_lu = type_bp_lookup{}
 var type_nud_lu = type_nud_lookup{}
 var type_led_lu = type_led_lookup{}
 
-func type_led(kind lexer.TokenKind, bp binding_power, led_fn type_led_handler) {
+func typeLED(kind lexer.TokenKind, bp BindingPower, led_fn type_led_handler) {
 	type_bp_lu[kind] = bp
 	type_led_lu[kind] = led_fn
 }
 
-func type_nud(kind lexer.TokenKind, nud_fn type_nud_handler) {
+func typeNUD(kind lexer.TokenKind, nud_fn type_nud_handler) {
 	type_bp_lu[kind] = primary
 	type_nud_lu[kind] = nud_fn
 }
 
 func createTokenTypeLookups() {
-	type_nud(lexer.IDENTIFIER, parse_symbol_type)
-	type_nud(lexer.OPEN_BRACKET, parse_array_type)
+	typeNUD(lexer.IDENTIFIER, parseSymbolType)
+	typeLED(lexer.OPEN_BRACKET, call, parseArrayType)
 }
 
-func parse_symbol_type(p *parser) ast.Type {
+func parseSymbolType(p *parser) ast.Type {
 	return ast.SymbolType{Name: p.expect(lexer.IDENTIFIER).Value}
 }
 
-func parse_array_type(p *parser) ast.Type {
-	p.advance()
+// Syntax for let obj -> Object[][] = SomeObject;
+func parseArrayType(p *parser, left ast.Type, bp BindingPower) ast.Type {
+	p.expect(lexer.OPEN_BRACKET)
 	p.expect(lexer.CLOSE_BRACKET)
-	var underlyingType = parse_type(p, default_bp)
-	return ast.ArrayType{Underlying: underlyingType}
+	return ast.ArrayType{Underlying: left}
 }
 
-func parse_type(p *parser, bp binding_power) ast.Type {
+func parseType(p *parser, bp BindingPower) ast.Type {
 	// Parse NUD
 	tokenKind := p.currentTokenKind()
-	nud_fn, exists := type_nud_lu[tokenKind]
+	nudFunction, exists := type_nud_lu[tokenKind]
 
 	if !exists {
-		panic(fmt.Sprintf(`TYPE NUD HANDLER EXPECTED FOR TOKEN %s\n`, lexer.TokenKindString(tokenKind)))
+		panic(fmt.Sprintf("type: NUD Handler expected for token '%s' | line:%d:%d ('%s')\n", lexer.TokenKindString(tokenKind), p.getLine(), p.getCharNumber(), p.file))
 	}
 
-	left := nud_fn(p)
-	for bp_lu[p.currentTokenKind()] > bp {
+	left := nudFunction(p)
+	for type_bp_lu[p.currentTokenKind()] > bp {
 		tokenKind = p.currentTokenKind()
-		led_fn, exists := type_led_lu[tokenKind]
+		ledFunction, exists := type_led_lu[tokenKind]
 		if !exists {
-			panic(fmt.Sprintf(`TYPE LED HANDLER EXPECTED FOR TOKEN %s\n`, lexer.TokenKindString(tokenKind)))
+			panic(fmt.Sprintf("type: LED Handler expected for token '%s' | line:%d:%d ('%s')\n", lexer.TokenKindString(tokenKind), p.getLine(), p.getCharNumber(), p.file))
 		}
 
-		left = led_fn(p, left, bp_lu[p.currentTokenKind()])
-
+		left = ledFunction(p, left, bp)
 	}
 	return left
 }

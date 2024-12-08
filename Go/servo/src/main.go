@@ -8,9 +8,10 @@ import (
 )
 
 func main() {
-	bytes, _ := os.ReadFile("./examples/04.svo")
+	file := "./examples/05.svo"
+	bytes, _ := os.ReadFile(file)
 	tokens := lexer.Tokenize(string(bytes))
 
-	ast := parser.Parse(tokens)
+	ast := parser.Parse(tokens, file)
 	litter.Dump(ast)
 }

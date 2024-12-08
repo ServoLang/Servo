@@ -7,7 +7,7 @@ type BlockStmt struct {
 func (n BlockStmt) stmt() {}
 
 type ExpressionStmt struct {
-	Expression Expr
+	Expression Expression
 }
 
 func (n ExpressionStmt) stmt() {}
@@ -15,8 +15,29 @@ func (n ExpressionStmt) stmt() {}
 type VarDeclStmt struct {
 	VariableName  string
 	IsConstant    bool
-	AssignedValue Expr
+	AssignedValue Expression
 	ExplicitType  Type
 }
 
 func (n VarDeclStmt) stmt() {}
+
+type StructProperty struct {
+	IsStatic bool
+	// Property string
+	Type Type
+}
+
+type StructMethod struct {
+	IsStatic bool
+	// Property string
+	// Type     Type
+}
+
+type StructDeclStmt struct {
+	// Public     bool
+	StructName string
+	Properties map[string]StructProperty
+	Methods    map[string]StructMethod
+}
+
+func (n StructDeclStmt) stmt() {}

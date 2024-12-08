@@ -4,7 +4,7 @@ type Stmt interface {
 	stmt()
 }
 
-type Expr interface {
+type Expression interface {
 	expr()
 }
 
