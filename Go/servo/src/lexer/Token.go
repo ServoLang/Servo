@@ -6,14 +6,14 @@ type TokenKind int
 
 const (
 	EOF TokenKind = iota
-	EOL TokenKind = iota
 	NULL
-	NUMBER
-	STRING
 	TRUE
 	FALSE
+	NUMBER
+	STRING
 	IDENTIFIER
 
+	// Grouping & Braces
 	OPEN_BRACKET
 	CLOSE_BRACKET
 	OPEN_CURLY
@@ -21,51 +21,53 @@ const (
 	OPEN_PAREN
 	CLOSE_PAREN
 
-	ASSIGNMENT // =
-	EQUALS     // ==
-	NOT        // !
-	NOT_EQUALS // !=
+	// Equivilance
+	ASSIGNMENT
+	EQUALS
+	NOT_EQUALS
+	NOT
 
+	// Conditional
 	LESS
 	LESS_EQUALS
 	GREATER
 	GREATER_EQUALS
 
+	// Logical
 	OR
 	AND
-	POINTER
 
+	// Symbols
 	DOT
 	DOT_DOT
 	SEMI_COLON
 	COLON
 	QUESTION
 	COMMA
+	POINTER
 
+	// Shorthand
 	PLUS_PLUS
 	MINUS_MINUS
 	PLUS_EQUALS
 	MINUS_EQUALS
-	SLASH_EQUALS
-	STAR_EQUALS
-	MOD_EQUALS
-	POW_EQUALS
+	NULLISH_ASSIGNMENT // ??=
 
+	// Maths
 	PLUS
 	DASH
 	SLASH
 	STAR
-	POW
 	PERCENT
 
-	// Reserved keywords
+	// Reserved Keywords
 	LET
 	CONST
 	CLASS
 	NEW
 	IMPORT
 	FROM
-	FN
+	FUNCTION
 	IF
 	ELSE
 	FOREACH
@@ -74,31 +76,30 @@ const (
 	EXPORT
 	TYPEOF
 	IN
-	STRUCT
-	STATIC
+
+	// Misc
+	NUM_TOKENS
 )
 
-var reservedLookup = map[string]TokenKind{
-	"let":     LET,
-	"const":   CONST,
-	"class":   CLASS,
-	"new":     NEW,
-	"import":  IMPORT,
-	"from":    FROM,
-	"fn":      FN,
-	"if":      IF,
-	"else":    ELSE,
-	"foreach": FOREACH,
-	"while":   WHILE,
-	"for":     FOR,
-	"export":  EXPORT,
-	"typeof":  TYPEOF,
-	"in":      IN,
-	"struct":  STRUCT,
-	"static":  STATIC,
-	"true":    TRUE,
-	"false":   FALSE,
-	"null":    NULL,
+var reserved_lu map[string]TokenKind = map[string]TokenKind{
+	"true":     TRUE,
+	"false":    FALSE,
+	"null":     NULL,
+	"let":      LET,
+	"const":    CONST,
+	"class":    CLASS,
+	"new":      NEW,
+	"import":   IMPORT,
+	"from":     FROM,
+	"function": FUNCTION,
+	"if":       IF,
+	"else":     ELSE,
+	"foreach":  FOREACH,
+	"while":    WHILE,
+	"for":      FOR,
+	"export":   EXPORT,
+	"typeof":   TYPEOF,
+	"in":       IN,
 }
 
 type Token struct {
@@ -106,33 +107,28 @@ type Token struct {
 	Value string
 }
 
-func (token Token) isOneOfMany(expectedTokens ...TokenKind) bool {
+func (tk Token) IsOneOfMany(expectedTokens ...TokenKind) bool {
 	for _, expected := range expectedTokens {
-		if expected == token.Kind {
+		if expected == tk.Kind {
 			return true
 		}
 	}
+
 	return false
 }
 
-func (token Token) Debug() {
-	if token.isOneOfMany(IDENTIFIER, NUMBER, STRING) {
-		fmt.Printf("%s (%s)\n", TokenKindString(token.Kind), token.Value)
+func (token Token) debug() {
+	if token.Kind == IDENTIFIER || token.Kind == NUMBER || token.Kind == STRING {
+		fmt.Printf("%s(%s)\n", TokenKindString(token.Kind), token.Value)
 	} else {
-		fmt.Printf("%s (null)\n", TokenKindString(token.Kind))
+		fmt.Printf("%s()\n", TokenKindString(token.Kind))
 	}
-}
-
-func NewToken(kind TokenKind, value string) Token {
-	return Token{Kind: kind, Value: value}
 }
 
 func TokenKindString(kind TokenKind) string {
 	switch kind {
 	case EOF:
 		return "eof"
-	case EOL:
-		return "eol"
 	case NULL:
 		return "null"
 	case NUMBER:
@@ -145,7 +141,6 @@ func TokenKindString(kind TokenKind) string {
 		return "false"
 	case IDENTIFIER:
 		return "identifier"
-
 	case OPEN_BRACKET:
 		return "open_bracket"
 	case CLOSE_BRACKET:
@@ -158,14 +153,12 @@ func TokenKindString(kind TokenKind) string {
 		return "open_paren"
 	case CLOSE_PAREN:
 		return "close_paren"
-
 	case ASSIGNMENT:
 		return "assignment"
 	case EQUALS:
 		return "equals"
 	case NOT_EQUALS:
 		return "not_equals"
-
 	case NOT:
 		return "not"
 	case LESS:
@@ -176,14 +169,10 @@ func TokenKindString(kind TokenKind) string {
 		return "greater"
 	case GREATER_EQUALS:
 		return "greater_equals"
-
 	case OR:
 		return "or"
 	case AND:
 		return "and"
-	case POINTER:
-		return "pointer"
-
 	case DOT:
 		return "dot"
 	case DOT_DOT:
@@ -196,7 +185,8 @@ func TokenKindString(kind TokenKind) string {
 		return "question"
 	case COMMA:
 		return "comma"
-
+	case POINTER:
+		return "pointer"
 	case PLUS_PLUS:
 		return "plus_plus"
 	case MINUS_MINUS:
@@ -205,15 +195,8 @@ func TokenKindString(kind TokenKind) string {
 		return "plus_equals"
 	case MINUS_EQUALS:
 		return "minus_equals"
-	case SLASH_EQUALS:
-		return "slash_equals"
-	case STAR_EQUALS:
-		return "star_equals"
-	case MOD_EQUALS:
-		return "mod_equals"
-	case POW_EQUALS:
-		return "pow_equals"
-
+	case NULLISH_ASSIGNMENT:
+		return "nullish_assignment"
 	case PLUS:
 		return "plus"
 	case DASH:
@@ -222,11 +205,8 @@ func TokenKindString(kind TokenKind) string {
 		return "slash"
 	case STAR:
 		return "star"
-	case POW:
-		return "pow"
 	case PERCENT:
 		return "percent"
-
 	case LET:
 		return "let"
 	case CONST:
@@ -239,7 +219,7 @@ func TokenKindString(kind TokenKind) string {
 		return "import"
 	case FROM:
 		return "from"
-	case FN:
+	case FUNCTION:
 		return "fn"
 	case IF:
 		return "if"
@@ -253,15 +233,15 @@ func TokenKindString(kind TokenKind) string {
 		return "while"
 	case EXPORT:
 		return "export"
-	case TYPEOF:
-		return "typeof"
 	case IN:
 		return "in"
-	case STRUCT:
-		return "struct"
-	case STATIC:
-		return "static"
 	default:
 		return fmt.Sprintf("unknown(%d)", kind)
+	}
+}
+
+func newUniqueToken(kind TokenKind, value string) Token {
+	return Token{
+		kind, value,
 	}
 }

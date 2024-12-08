@@ -1,0 +1,45 @@
+import fs;
+import path;
+import time;
+
+/*
+ * Test multi block line comment
+ */
+class DirectoryReader {
+    let directoryPath -> String = "";
+
+    function mount(String directoryPath) -> Void {
+        this.directoryPath = directoryPath;
+    }
+
+    function readRecentFiles() -> Void {
+        let allFiles -> []String = fs.readDir(this.directoryPath);
+        let recentFiles -> []String = [];
+
+        foreach (file in allFiles) {
+          let fullPath -> String = path.join(this.directoryPath, file);
+          let fileInfo -> FileInfo = fs.stat(fullPath);
+          if this.isFileRecent(fileInfo.creationTime) {
+            recentFiles.push(fullPath);
+          }
+        }
+
+        foreach (file in recentFiles) {
+          println(file, fs.stat(file).creationTime);
+        }
+    }
+
+     function isFileRecent(Time creationTime) -> Boolean {
+        let twentyFourHoursAgo -> Time = time.now() - time.hours(24);
+        creationTime > twentyFourHoursAgo;
+     }
+}
+
+function main() {
+  const directory -> String = "/path/to/directory";
+  const reader = new DirectoryReader();
+  reader.mount(directory);
+  reader.readRecentFiles();
+}
+
+main();

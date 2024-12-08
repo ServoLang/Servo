@@ -1,17 +1,21 @@
 package main
 
 import (
-	"Go/servo/src/lexer"
 	"Go/servo/src/parser"
+	"fmt"
 	"github.com/sanity-io/litter"
 	"os"
+	"time"
 )
 
 func main() {
-	file := "./examples/05.svo"
-	bytes, _ := os.ReadFile(file)
-	tokens := lexer.Tokenize(string(bytes))
+	file := "./examples/Test.svo"
+	sourceBytes, _ := os.ReadFile(file)
+	source := string(sourceBytes)
+	start := time.Now()
+	ast := parser.Parse(source)
+	duration := time.Since(start)
 
-	ast := parser.Parse(tokens, file)
 	litter.Dump(ast)
+	fmt.Printf("Duration: %v\n", duration)
 }
