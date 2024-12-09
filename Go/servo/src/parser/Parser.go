@@ -22,7 +22,7 @@ func createParser(tokens []lexer.Token) *parser {
 	return p
 }
 
-func Parse(source string) ast.BlockStmt {
+func Parse(source string) ast.BlockStatement {
 	tokens := lexer.Tokenize(source)
 	p := createParser(tokens)
 	body := make([]ast.Stmt, 0)
@@ -31,7 +31,7 @@ func Parse(source string) ast.BlockStmt {
 		body = append(body, parseStatement(p))
 	}
 
-	return ast.BlockStmt{
+	return ast.BlockStatement{
 		Body: body,
 	}
 }

@@ -3,6 +3,7 @@ package lexer
 import (
 	"fmt"
 	"regexp"
+	"strings"
 )
 
 type regexPattern struct {
@@ -10,10 +11,10 @@ type regexPattern struct {
 	handler regexHandler
 }
 
-type lexer struct {
+type Lexer struct {
 	patterns []regexPattern
 	Tokens   []Token
-	source   string
+	Input    string
 	pos      int
 	line     int
 }
@@ -34,7 +35,7 @@ func Tokenize(source string) []Token {
 		}
 
 		if !matched {
-			panic(fmt.Sprintf("lexer error: unrecognized token near '%v'", lex.remainder()))
+			panic(fmt.Sprintf("Lexer error: unrecognized token near '%v'", lex.remainder()))
 		}
 	}
 
@@ -42,48 +43,48 @@ func Tokenize(source string) []Token {
 	return lex.Tokens
 }
 
-func (lex *lexer) advanceN(n int) {
+func (lex *Lexer) advanceN(n int) {
 	lex.pos += n
 }
 
-func (lex *lexer) at() byte {
-	return lex.source[lex.pos]
+func (lex *Lexer) at() byte {
+	return lex.Input[lex.pos]
 }
 
-func (lex *lexer) advance() {
+func (lex *Lexer) advance() {
 	lex.pos += 1
 }
 
-func (lex *lexer) remainder() string {
-	return lex.source[lex.pos:]
+func (lex *Lexer) remainder() string {
+	return lex.Input[lex.pos:]
 }
 
-func (lex *lexer) push(token Token) {
+func (lex *Lexer) push(token Token) {
 	lex.Tokens = append(lex.Tokens, token)
 }
 
-func (lex *lexer) at_eof() bool {
-	return lex.pos >= len(lex.source)
+func (lex *Lexer) at_eof() bool {
+	return lex.pos >= len(lex.Input)
 }
 
-func createLexer(source string) *lexer {
-	return &lexer{
+func createLexer(source string) *Lexer {
+	return &Lexer{
 		pos:    0,
 		line:   1,
-		source: source,
+		Input:  source,
 		Tokens: make([]Token, 0),
 		patterns: []regexPattern{
 			{regexp.MustCompile(`\s+`), skipHandler},
-			{regexp.MustCompile(`/\*([\s\S]*?)\*/`), commentHandler},
-			{regexp.MustCompile(`//.*`), commentHandler},
+			{regexp.MustCompile(`/\*([\s\S]*?)\*/`), commentHandler}, // Comment blocks
+			{regexp.MustCompile(`//.*`), commentHandler},             // Single line
+			{regexp.MustCompile(`[0-9]+(\.[0-9]+)?`), numberHandler}, // Whole numbers
 			{regexp.MustCompile(`"[^"]*"`), stringHandler},
-			{regexp.MustCompile(`[0-9]+(\.[0-9]+)?`), numberHandler},
 			{regexp.MustCompile(`[a-zA-Z_][a-zA-Z0-9_]*`), symbolHandler},
 			{regexp.MustCompile(`->`), defaultHandler(POINTER, "->")},
 			{regexp.MustCompile(`\[`), defaultHandler(OPEN_BRACKET, "[")},
-			{regexp.MustCompile(`\]`), defaultHandler(CLOSE_BRACKET, "]")},
+			{regexp.MustCompile(`]`), defaultHandler(CLOSE_BRACKET, "]")},
 			{regexp.MustCompile(`\{`), defaultHandler(OPEN_CURLY, "{")},
-			{regexp.MustCompile(`\}`), defaultHandler(CLOSE_CURLY, "}")},
+			{regexp.MustCompile(`}`), defaultHandler(CLOSE_CURLY, "}")},
 			{regexp.MustCompile(`\(`), defaultHandler(OPEN_PAREN, "(")},
 			{regexp.MustCompile(`\)`), defaultHandler(CLOSE_PAREN, ")")},
 			{regexp.MustCompile(`==`), defaultHandler(EQUALS, "==")},
@@ -116,17 +117,17 @@ func createLexer(source string) *lexer {
 	}
 }
 
-type regexHandler func(lex *lexer, regex *regexp.Regexp)
+type regexHandler func(lex *Lexer, regex *regexp.Regexp)
 
 // Created a default handler which will simply create a token with the matched contents. This handler is used with most simple tokens.
 func defaultHandler(kind TokenKind, value string) regexHandler {
-	return func(lex *lexer, _ *regexp.Regexp) {
+	return func(lex *Lexer, _ *regexp.Regexp) {
 		lex.advanceN(len(value))
 		lex.push(newUniqueToken(kind, value))
 	}
 }
 
-func stringHandler(lex *lexer, regex *regexp.Regexp) {
+func stringHandler(lex *Lexer, regex *regexp.Regexp) {
 	match := regex.FindStringIndex(lex.remainder())
 	stringLiteral := lex.remainder()[match[0]:match[1]]
 
@@ -134,13 +135,18 @@ func stringHandler(lex *lexer, regex *regexp.Regexp) {
 	lex.advanceN(len(stringLiteral))
 }
 
-func numberHandler(lex *lexer, regex *regexp.Regexp) {
+// Handles floats or integers
+func numberHandler(lex *Lexer, regex *regexp.Regexp) {
 	match := regex.FindString(lex.remainder())
-	lex.push(newUniqueToken(NUMBER, match))
+	if strings.Contains(match, ".") {
+		lex.push(newUniqueToken(FLOAT, match))
+	} else {
+		lex.push(newUniqueToken(INTEGER, match))
+	}
 	lex.advanceN(len(match))
 }
 
-func symbolHandler(lex *lexer, regex *regexp.Regexp) {
+func symbolHandler(lex *Lexer, regex *regexp.Regexp) {
 	match := regex.FindString(lex.remainder())
 
 	if kind, found := reserved_lu[match]; found {
@@ -152,12 +158,12 @@ func symbolHandler(lex *lexer, regex *regexp.Regexp) {
 	lex.advanceN(len(match))
 }
 
-func skipHandler(lex *lexer, regex *regexp.Regexp) {
+func skipHandler(lex *Lexer, regex *regexp.Regexp) {
 	match := regex.FindStringIndex(lex.remainder())
 	lex.advanceN(match[1])
 }
 
-func commentHandler(lex *lexer, regex *regexp.Regexp) {
+func commentHandler(lex *Lexer, regex *regexp.Regexp) {
 	match := regex.FindStringIndex(lex.remainder())
 	if match != nil {
 		// Advance past the entire comment.

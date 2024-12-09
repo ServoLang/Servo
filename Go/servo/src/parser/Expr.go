@@ -73,19 +73,19 @@ func parseBinaryExpression(p *parser, left ast.Expr, bp binding_power) ast.Expr 
 
 func parsePrimaryExpression(p *parser) ast.Expr {
 	switch p.currentTokenKind() {
-	case lexer.NUMBER:
+	case lexer.INTEGER:
+		number, _ := strconv.ParseInt(p.advance().Value, 10, 64)
+		return ast.IntegerExpr{Value: number}
+	case lexer.FLOAT:
 		number, _ := strconv.ParseFloat(p.advance().Value, 64)
-		return ast.NumberExpr{
-			Value: number,
-		}
+		return ast.FloatExpr{Value: number}
+	case lexer.BOOLEAN:
+		b, _ := strconv.ParseBool(p.advance().Value)
+		return ast.BooleanExpr{Value: b}
 	case lexer.STRING:
-		return ast.StringExpr{
-			Value: p.advance().Value,
-		}
+		return ast.StringExpr{Value: p.advance().Value}
 	case lexer.IDENTIFIER:
-		return ast.SymbolExpr{
-			Value: p.advance().Value,
-		}
+		return ast.SymbolExpr{Value: p.advance().Value}
 	default:
 		panic(fmt.Sprintf("Cannot create primary_expr from %s\n", lexer.TokenKindString(p.currentTokenKind())))
 	}
@@ -162,5 +162,14 @@ func parseFunctionExpression(p *parser) ast.Expr {
 		Parameters: functionParams,
 		ReturnType: returnType,
 		Body:       functionBody,
+	}
+}
+
+func parseNewExpression(p *parser) ast.Expr {
+	p.advance()
+	classInstantiation := parseExpression(p, defalt_bp)
+
+	return ast.NewExpr{
+		Instantiation: ast.ExpectExpr[ast.CallExpr](classInstantiation),
 	}
 }

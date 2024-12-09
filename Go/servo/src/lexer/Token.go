@@ -62,9 +62,14 @@ const (
 
 	// Reserved Keywords
 	LET
+	VAR
 	CONST
+	INTEGER
+	FLOAT
+	BOOLEAN
 	CLASS
 	NEW
+	SCOPE
 	IMPORT
 	FROM
 	FUNCTION
@@ -76,30 +81,43 @@ const (
 	EXPORT
 	TYPEOF
 	IN
+	PUBLIC
+	PRIVATE
+	PROTECTED
+	STATIC
 
 	// Misc
 	NUM_TOKENS
 )
 
 var reserved_lu map[string]TokenKind = map[string]TokenKind{
-	"true":     TRUE,
-	"false":    FALSE,
-	"null":     NULL,
-	"let":      LET,
-	"const":    CONST,
-	"class":    CLASS,
-	"new":      NEW,
-	"import":   IMPORT,
-	"from":     FROM,
-	"function": FUNCTION,
-	"if":       IF,
-	"else":     ELSE,
-	"foreach":  FOREACH,
-	"while":    WHILE,
-	"for":      FOR,
-	"export":   EXPORT,
-	"typeof":   TYPEOF,
-	"in":       IN,
+	"true":      TRUE,
+	"false":     FALSE,
+	"null":      NULL,
+	"let":       LET,
+	"var":       VAR,
+	"const":     CONST,
+	"Integer":   INTEGER,
+	"Float":     FLOAT,
+	"Boolean":   BOOLEAN,
+	"class":     CLASS,
+	"new":       NEW,
+	"scope":     SCOPE,
+	"import":    IMPORT,
+	"from":      FROM,
+	"function":  FUNCTION,
+	"if":        IF,
+	"else":      ELSE,
+	"foreach":   FOREACH,
+	"while":     WHILE,
+	"for":       FOR,
+	"export":    EXPORT,
+	"typeof":    TYPEOF,
+	"in":        IN,
+	"public":    PUBLIC,
+	"private":   PRIVATE,
+	"protected": PROTECTED,
+	"static":    STATIC,
 }
 
 type Token struct {
@@ -118,7 +136,7 @@ func (tk Token) IsOneOfMany(expectedTokens ...TokenKind) bool {
 }
 
 func (token Token) debug() {
-	if token.Kind == IDENTIFIER || token.Kind == NUMBER || token.Kind == STRING {
+	if token.Kind == IDENTIFIER || token.Kind == NUMBER || token.Kind == INTEGER || token.Kind == FLOAT || token.Kind == BOOLEAN || token.Kind == STRING {
 		fmt.Printf("%s(%s)\n", TokenKindString(token.Kind), token.Value)
 	} else {
 		fmt.Printf("%s()\n", TokenKindString(token.Kind))
@@ -209,18 +227,28 @@ func TokenKindString(kind TokenKind) string {
 		return "percent"
 	case LET:
 		return "let"
+	case VAR:
+		return "var"
+	case INTEGER:
+		return "integer"
+	case FLOAT:
+		return "float"
+	case BOOLEAN:
+		return "boolean"
 	case CONST:
 		return "const"
 	case CLASS:
 		return "class"
 	case NEW:
 		return "new"
+	case SCOPE:
+		return "scope"
 	case IMPORT:
 		return "import"
 	case FROM:
 		return "from"
 	case FUNCTION:
-		return "fn"
+		return "function"
 	case IF:
 		return "if"
 	case ELSE:
@@ -235,6 +263,14 @@ func TokenKindString(kind TokenKind) string {
 		return "export"
 	case IN:
 		return "in"
+	case PUBLIC:
+		return "public"
+	case PRIVATE:
+		return "private"
+	case PROTECTED:
+		return "protected"
+	case STATIC:
+		return "static"
 	default:
 		return fmt.Sprintf("unknown(%d)", kind)
 	}

@@ -8,11 +8,23 @@ import (
 // Literal Expressions
 // --------------------
 
-type NumberExpr struct {
+type BooleanExpr struct {
+	Value bool
+}
+
+func (n BooleanExpr) expr() {}
+
+type IntegerExpr struct {
+	Value int64
+}
+
+func (n IntegerExpr) expr() {}
+
+type FloatExpr struct {
 	Value float64
 }
 
-func (n NumberExpr) expr() {}
+func (n FloatExpr) expr() {}
 
 type StringExpr struct {
 	Value string

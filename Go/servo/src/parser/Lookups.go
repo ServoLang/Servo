@@ -77,7 +77,9 @@ func createTokenLookups() {
 	led(lexer.PERCENT, multiplicative, parseBinaryExpression)
 
 	// Literals & Symbols
-	nud(lexer.NUMBER, primary, parsePrimaryExpression)
+	nud(lexer.INTEGER, primary, parsePrimaryExpression)
+	nud(lexer.FLOAT, primary, parsePrimaryExpression)
+	nud(lexer.BOOLEAN, primary, parsePrimaryExpression)
 	nud(lexer.STRING, primary, parsePrimaryExpression)
 	nud(lexer.IDENTIFIER, primary, parsePrimaryExpression)
 
@@ -95,22 +97,21 @@ func createTokenLookups() {
 	// Grouping Expr
 	nud(lexer.OPEN_PAREN, defalt_bp, parseGroupingExpression)
 	nud(lexer.FUNCTION, defalt_bp, parseFunctionExpression)
-	nud(lexer.NEW, defalt_bp, func(p *parser) ast.Expr {
-		p.advance()
-		classInstantiation := parseExpression(p, defalt_bp)
-
-		return ast.NewExpr{
-			Instantiation: ast.ExpectExpr[ast.CallExpr](classInstantiation),
-		}
-	})
+	nud(lexer.NEW, defalt_bp, parseNewExpression)
 
 	stmt(lexer.OPEN_CURLY, parseBlockStatement)
 	stmt(lexer.LET, parseVariableDeclarationStatement)
+	stmt(lexer.VAR, parseVariableDeclarationStatement)
 	stmt(lexer.CONST, parseVariableDeclarationStatement)
 	stmt(lexer.FUNCTION, parseFunctionDeclaration)
 	stmt(lexer.IF, parseIfStatement)
+	stmt(lexer.SCOPE, parseScopeStatement)
 	stmt(lexer.IMPORT, parseImportStatement)
 	stmt(lexer.FOREACH, parseForEachStatement)
 	stmt(lexer.CLASS, parseClassDeclarationStatement)
-	// TODO: PUBLIC, PRIVATE, PROTECTED, STATIC
+	// TODO: Allow functions to also be declared as public | private | protected | static
+	stmt(lexer.PUBLIC, parsePublicScopeDeclarationStatement)
+	stmt(lexer.PRIVATE, parsePrivateScopeDeclarationStatement)
+	stmt(lexer.PROTECTED, parseProtectedScopeDeclarationStatement)
+	stmt(lexer.STATIC, parseStaticDeclarationStatement)
 }

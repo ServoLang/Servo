@@ -16,11 +16,11 @@ func parseStatement(p *parser) ast.Stmt {
 	return parseExpressionStatement(p)
 }
 
-func parseExpressionStatement(p *parser) ast.ExpressionStmt {
+func parseExpressionStatement(p *parser) ast.ExpressionStatement {
 	expression := parseExpression(p, defalt_bp)
 	p.expect(lexer.SEMI_COLON)
 
-	return ast.ExpressionStmt{
+	return ast.ExpressionStatement{
 		Expression: expression,
 	}
 }
@@ -34,11 +34,13 @@ func parseBlockStatement(p *parser) ast.Stmt {
 	}
 
 	p.expect(lexer.CLOSE_CURLY)
-	return ast.BlockStmt{
+	return ast.BlockStatement{
 		Body: body,
 	}
 }
 
+// TODO: Allow scope assignments and static assignments.
+// TODO: Flip array bracket declaration to after identifier
 func parseVariableDeclarationStatement(p *parser) ast.Stmt {
 	var explicitType ast.Type
 	startToken := p.advance().Kind
@@ -66,7 +68,7 @@ func parseVariableDeclarationStatement(p *parser) ast.Stmt {
 		panic("Cannot define constant variable without providing default value.")
 	}
 
-	return ast.VarDeclarationStmt{
+	return ast.VarDeclarationStatement{
 		Constant:      isConstant,
 		Identifier:    symbolName.Value,
 		AssignedValue: assignmentValue,
@@ -103,7 +105,7 @@ func parseFunctionParamsAndBody(p *parser) ([]ast.Parameter, ast.Type, []ast.Stm
 		returnType = parseType(p, defalt_bp)
 	}
 
-	functionBody := ast.ExpectStmt[ast.BlockStmt](parseBlockStatement(p)).Body
+	functionBody := ast.ExpectStmt[ast.BlockStatement](parseBlockStatement(p)).Body
 
 	return functionParams, returnType, functionBody
 }
@@ -113,7 +115,7 @@ func parseFunctionDeclaration(p *parser) ast.Stmt {
 	functionName := p.expect(lexer.IDENTIFIER).Value
 	functionParams, returnType, functionBody := parseFunctionParamsAndBody(p)
 
-	return ast.FunctionDeclarationStmt{
+	return ast.FunctionDeclarationStatement{
 		Parameters: functionParams,
 		ReturnType: returnType,
 		Body:       functionBody,
@@ -137,11 +139,25 @@ func parseIfStatement(p *parser) ast.Stmt {
 		}
 	}
 
-	return ast.IfStmt{
+	return ast.IfStatement{
 		Condition:  condition,
 		Consequent: consequent,
 		Alternate:  alternate,
 	}
+}
+
+// TODO: THIS RETURNS AN IDENTIFIER RATHER THAN A POSSIBLE FILE PATH CANDIDATE
+func parseScopeStatement(p *parser) ast.Stmt {
+	p.advance() // advance past scope
+	var parent string
+	path := p.expect(lexer.IDENTIFIER).Value
+	for p.currentTokenKind() == lexer.DOT {
+		p.advance()
+		parent = p.expect(lexer.IDENTIFIER).Value
+		path = path + "." + parent
+	}
+	p.expect(lexer.SEMI_COLON)
+	return ast.ScopeStatement{Path: path, Parent: parent}
 }
 
 func parseImportStatement(p *parser) ast.Stmt {
@@ -157,7 +173,7 @@ func parseImportStatement(p *parser) ast.Stmt {
 	}
 
 	p.expect(lexer.SEMI_COLON)
-	return ast.ImportStmt{
+	return ast.ImportStatement{
 		Name: importName,
 		From: importFrom,
 	}
@@ -178,9 +194,9 @@ func parseForEachStatement(p *parser) ast.Stmt {
 	p.expect(lexer.IN)
 	iterable := parseExpression(p, defalt_bp)
 	p.expect(lexer.CLOSE_PAREN)
-	body := ast.ExpectStmt[ast.BlockStmt](parseBlockStatement(p)).Body
+	body := ast.ExpectStmt[ast.BlockStatement](parseBlockStatement(p)).Body
 
-	return ast.ForeachStmt{
+	return ast.ForeachStatement{
 		Value:    valueName,
 		Index:    index,
 		Iterable: iterable,
@@ -193,8 +209,52 @@ func parseClassDeclarationStatement(p *parser) ast.Stmt {
 	className := p.expect(lexer.IDENTIFIER).Value
 	classBody := parseBlockStatement(p)
 
-	return ast.ClassDeclarationStmt{
+	return ast.ClassDeclarationStatement{
 		Name: className,
-		Body: ast.ExpectStmt[ast.BlockStmt](classBody).Body,
+		Body: ast.ExpectStmt[ast.BlockStatement](classBody).Body,
 	}
+}
+
+func parsePublicScopeDeclarationStatement(p *parser) ast.Stmt {
+	p.advance() // go past public
+	if p.currentTokenKind() == lexer.CLASS {
+		return ast.PublicDeclarationStatement{Value: parseClassDeclarationStatement(p)}
+	} else if p.currentTokenKind() == lexer.STATIC {
+		return ast.PublicDeclarationStatement{Value: parseStaticDeclarationStatement(p)}
+	} else if p.currentTokenKind() == lexer.FUNCTION {
+		return ast.PublicDeclarationStatement{Function: parseFunctionExpression(p)}
+	}
+	panic("Object cannot be declared public.")
+}
+
+func parsePrivateScopeDeclarationStatement(p *parser) ast.Stmt {
+	p.advance() // go past public
+	if p.currentTokenKind() == lexer.CLASS {
+		return ast.PrivateDeclarationStatement{Value: parseClassDeclarationStatement(p)}
+	} else if p.currentTokenKind() == lexer.STATIC {
+		return ast.PrivateDeclarationStatement{Value: parseStaticDeclarationStatement(p)}
+	} else if p.currentTokenKind() == lexer.FUNCTION {
+		return ast.PrivateDeclarationStatement{Function: parseFunctionExpression(p)}
+	}
+	panic("Object cannot be declared public.")
+}
+
+func parseProtectedScopeDeclarationStatement(p *parser) ast.Stmt {
+	p.advance() // go past public
+	if p.currentTokenKind() == lexer.CLASS {
+		return ast.ProtectedDeclarationStatement{Value: parseClassDeclarationStatement(p)}
+	} else if p.currentTokenKind() == lexer.STATIC {
+		return ast.ProtectedDeclarationStatement{Value: parseStaticDeclarationStatement(p)}
+	} else if p.currentTokenKind() == lexer.FUNCTION {
+		return ast.ProtectedDeclarationStatement{Function: parseFunctionExpression(p)}
+	}
+	panic("Object cannot be declared public.")
+}
+
+func parseStaticDeclarationStatement(p *parser) ast.Stmt {
+	p.advance() // go past static
+	if p.currentTokenKind() != lexer.CLASS {
+		return ast.StaticDeclarationStatement{Value: parseClassDeclarationStatement(p)}
+	}
+	panic("Classes cannot be declared static.")
 }

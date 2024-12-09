@@ -1,67 +1,101 @@
 package ast
 
-type BlockStmt struct {
+type BlockStatement struct {
 	Body []Stmt
 }
 
-func (b BlockStmt) stmt() {}
+func (b BlockStatement) stmt() {}
 
-type VarDeclarationStmt struct {
+type VarDeclarationStatement struct {
 	Identifier    string
 	Constant      bool
 	AssignedValue Expr
 	ExplicitType  Type
 }
 
-func (n VarDeclarationStmt) stmt() {}
+func (n VarDeclarationStatement) stmt() {}
 
-type ExpressionStmt struct {
+type ExpressionStatement struct {
 	Expression Expr
 }
 
-func (n ExpressionStmt) stmt() {}
+func (n ExpressionStatement) stmt() {}
 
 type Parameter struct {
 	Name string
 	Type Type
 }
 
-type FunctionDeclarationStmt struct {
+type FunctionDeclarationStatement struct {
 	Parameters []Parameter
 	Name       string
 	Body       []Stmt
 	ReturnType Type
 }
 
-func (n FunctionDeclarationStmt) stmt() {}
+func (n FunctionDeclarationStatement) stmt() {}
 
-type IfStmt struct {
+type IfStatement struct {
 	Condition  Expr
 	Consequent Stmt
 	Alternate  Stmt
 }
 
-func (n IfStmt) stmt() {}
+func (n IfStatement) stmt() {}
 
-type ImportStmt struct {
+type ImportStatement struct {
 	Name string
 	From string
 }
 
-func (n ImportStmt) stmt() {}
+func (n ImportStatement) stmt() {}
 
-type ForeachStmt struct {
+type ForeachStatement struct {
 	Value    string
 	Index    bool
 	Iterable Expr
 	Body     []Stmt
 }
 
-func (n ForeachStmt) stmt() {}
+func (n ForeachStatement) stmt() {}
 
-type ClassDeclarationStmt struct {
+type ClassDeclarationStatement struct {
 	Name string
 	Body []Stmt
 }
 
-func (n ClassDeclarationStmt) stmt() {}
+func (n ClassDeclarationStatement) stmt() {}
+
+type PublicDeclarationStatement struct {
+	Value    Stmt
+	Function Expr
+}
+
+func (p PublicDeclarationStatement) stmt() {}
+
+type PrivateDeclarationStatement struct {
+	Value    Stmt
+	Function Expr
+}
+
+func (p PrivateDeclarationStatement) stmt() {}
+
+type ProtectedDeclarationStatement struct {
+	Value    Stmt
+	Function Expr
+}
+
+func (p ProtectedDeclarationStatement) stmt() {}
+
+type StaticDeclarationStatement struct {
+	Value Stmt
+}
+
+func (p StaticDeclarationStatement) stmt() {}
+
+type ScopeStatement struct {
+	Path   string
+	Parent string
+}
+
+func (n ScopeStatement) stmt() {}
