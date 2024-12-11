@@ -1,7 +1,9 @@
 package repl
 
 import (
+	"Servo/src/evaluator"
 	"Servo/src/lexer"
+	"Servo/src/object"
 	"Servo/src/parser"
 	"bufio"
 	"fmt"
@@ -37,6 +39,8 @@ const GEAR = `
 
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
+	env := object.NewEnvironment()
+	macroEnv := object.NewEnvironment()
 
 	for {
 		fmt.Fprintf(out, PROMPT)
@@ -55,8 +59,14 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
+		evaluator.DefineMacros(program, macroEnv)
+		expanded := evaluator.ExpandMacros(program, macroEnv)
+
+		evaluated := evaluator.Eval(expanded, env)
+		if evaluated != nil {
+			// io.WriteString(out, evaluated.Inspect()) No longer will print out what the value is automatically. Do it yourself ;)
+			io.WriteString(out, "\n")
+		}
 	}
 }
 

@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/SuperScary/Servo/refs/heads/main/logos/servo-retro.png" width="250" style="display: block; margin: 0 auto"/>
+<img src="https://raw.githubusercontent.com/SuperScary/Servo/refs/heads/main/logos/Servo%20Mascot-transparent.png" width="250" style="display: block; margin: 0 auto"/>
 
 # Servo Programming Language
 
