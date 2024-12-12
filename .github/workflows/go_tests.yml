@@ -27,17 +27,20 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
 
-    - name: Install dependencies
-      run: go install github.com/ctrf-io/go-ctrf-json-reporter/cmd/go-ctrf-json-reporter@latest | npm install
+    - name: Install Go Dependencies
+      run: go install github.com/ctrf-io/go-ctrf-json-reporter/cmd/go-ctrf-json-reporter@latest
+
+    - name: Install Node.js Dependencies
+      run: npm install
 
     - name: Display Go version
       run: go version
 
-    - name: Build
+    - name: Build Servo
       run: go build -v ./src/...
 
-    - name: Test
-      run: go test -json ./src/... | go-ctrf-json-reporter -output ctrf-report.json
+    - name: Test Servo
+      run: go test -json ./src/... | go-ctrf-json-reporter -output reports/Servo-Tests-Report.json
 
-    - name: Publish Test Summary Results
-      run: npx github-actions-ctrf ctrf/ctrf-report.json
+    - name: Publish Servo Test Summary Results
+      run: npx github-actions-ctrf reports/Servo-Tests-Report.json
