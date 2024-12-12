@@ -9,11 +9,23 @@ import (
 const (
 	OpConstant Opcode = iota
 	OpAdd
+	OpSub
+	OpMul
+	OpDiv
+	OpPow
+	OpMod
+	OpPop
 )
 
 var definitions = map[Opcode]*Definition{
 	OpConstant: {"OpConstant", []int{2}}, // Limited to 65536 constants
 	OpAdd:      {"OpAdd", []int{}},
+	OpSub:      {"OpSub", []int{}},
+	OpMul:      {"OpMul", []int{}},
+	OpDiv:      {"OpDiv", []int{}},
+	OpPow:      {"OpPow", []int{}},
+	OpMod:      {"OpMod", []int{}},
+	OpPop:      {"OpPop", []int{}},
 }
 
 type Instructions []byte

@@ -71,8 +71,8 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		stackTop := machine.StackTop()
-		io.WriteString(out, stackTop.Inspect()) // TODO: Remove to force printing
+		lastPopped := machine.LastPoppedStackElem()
+		io.WriteString(out, lastPopped.Inspect()) // TODO: Remove to force printing
 		io.WriteString(out, "\n")
 	}
 }

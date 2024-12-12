@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repl/repl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repl/repl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/vm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +106,7 @@
       <recent name="D:\Servo Lang\Servo\.github\workflows" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build Servo/src">
+  <component name="RunManager" selected="Go Test.TestIntegerArithmetic in Servo/src/compiler">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$" />
@@ -177,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build Servo/src" />
-        <item itemvalue="Go Test.TestIntegerArithmetic in Servo/src/vm" />
-        <item itemvalue="Go Test.go test Servo/src/compiler" />
         <item itemvalue="Go Test.TestIntegerArithmetic in Servo/src/compiler" />
         <item itemvalue="Go Test.TestInstructionsString in Servo/src/code" />
+        <item itemvalue="Go Test.TestIntegerArithmetic in Servo/src/vm" />
+        <item itemvalue="Go Build.go build Servo/src" />
+        <item itemvalue="Go Test.go test Servo/src/compiler" />
       </list>
     </recent_temporary>
   </component>
