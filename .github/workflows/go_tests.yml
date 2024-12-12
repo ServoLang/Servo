@@ -28,7 +28,7 @@ jobs:
         go-version: ${{ matrix.go-version }}
 
     - name: Install dependencies
-      run: go install github.com/ctrf-io/go-ctrf-json-reporter/cmd/go-ctrf-json-reporter@latest
+      run: go install github.com/ctrf-io/go-ctrf-json-reporter/cmd/go-ctrf-json-reporter@latest | npm install
 
     - name: Display Go version
       run: go version

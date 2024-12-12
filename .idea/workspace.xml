@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
+      <change afterPath="$PROJECT_DIR$/reports/Servo-Tests-Report.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/go_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
