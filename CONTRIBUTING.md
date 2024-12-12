@@ -8,7 +8,7 @@ Thank you for considering contributing to the Servo programming language! Servo 
 
 ### 1. Reporting Bugs
 
-If you find a bug, let us know by opening an issue on our [GitHub Issues](https://github.com/servo/issues). Please include:
+If you find a bug, let us know by opening an issue on our [GitHub Issues](https://github.com/ServoLang/Servo/issues). Please include:
 
 - A clear and descriptive title.
 - Steps to reproduce the issue.
@@ -18,7 +18,7 @@ If you find a bug, let us know by opening an issue on our [GitHub Issues](https:
 
 ### 2. Suggesting Features
 
-Got a great idea? Suggest it! Open an issue on [GitHub](https://github.com/servo/issues) and include:
+Got a great idea? Suggest it! Open an issue on [GitHub](https://github.com/ServoLang/Servo/issues) and include:
 
 - A detailed explanation of the feature.
 - Use cases and why it would benefit the Servo community.
@@ -31,7 +31,7 @@ Got a great idea? Suggest it! Open an issue on [GitHub](https://github.com/servo
 1. Fork the Servo repository to your GitHub account.
 2. Clone your forked repository to your local machine:
    ```bash
-   git clone https://github.com/<your-username>/servo.git
+   git clone https://github.com/ServoLang/Servo.git
    cd servo
    ```
 
@@ -72,7 +72,7 @@ git push origin feature-name
 
 #### **Step 7: Open a Pull Request**
 
-1. Go to the [Servo repository](https://github.com/servo/servo).
+1. Go to the [Servo repository](https://github.com/ServoLang/Servo).
 2. Click **New Pull Request**.
 3. Select the base repository and branch (`main`) and compare it with your forked repository and branch.
 4. Add a detailed description of your changes.
@@ -82,7 +82,7 @@ git push origin feature-name
 
 ## Coding Guidelines
 
-- **Code Style**: Follow the [Servo Code Style Guide](https://docs.example.com/code-style-guide).
+- **Code Style**: Follow the [Servo Code Style Guide](https://github.com/ServoLang/Guides/StyleGuide.md).
 - **Commit Messages**: Use meaningful commit messages that describe your changes.
 - **Testing**: Include tests for your contributions. Ensure existing tests pass.
 
@@ -100,7 +100,7 @@ git push origin feature-name
 
 - **Improve Documentation**: Help us make Servo's documentation more comprehensive and beginner-friendly.
 - **Build Tutorials**: Create guides, videos, or examples to help others learn Servo.
-- **Answer Questions**: Participate in discussions on the [Servo Forums](https://forum.example.com) or [Discord](https://discord.example.com).
+- **Answer Questions**: Participate in discussions on the [Servo Forums](https://forum.servolang.com) or [Discord](https://discord.servolang.com).
 
 ---
 
@@ -114,4 +114,4 @@ We expect all contributors to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md
 
 Your contributions make Servo better for everyone. Thank you for being a part of our community and for helping us improve! 🚀
 
-If you have any questions, feel free to reach out to us on [GitHub Discussions](https://github.com/servo/discussions) or our [community forums](https://forum.example.com).
+If you have any questions, feel free to reach out to us on [GitHub Discussions](https://github.com/ServoLang/Servo/discussions) or our [community forums](https://forum.servolang.com).
