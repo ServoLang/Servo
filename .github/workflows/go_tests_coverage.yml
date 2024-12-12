@@ -41,3 +41,9 @@ jobs:
 
       - name: Publish Servo Test Summary Results
         run: npx github-actions-ctrf reports/Servo-Coverage-Report.json
+
+      - name: Publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: Servo-Coverage-Report
+          path: reports/Servo-Coverage-Report.json
