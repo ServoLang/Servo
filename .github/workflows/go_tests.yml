@@ -40,4 +40,4 @@ jobs:
       run: go test -json ./src/... | go-ctrf-json-reporter -output Servo_Tests_Report.json
 
     - name: Publish Test Summary Results
-      run: npx github-actions-ctrf ctrf/Servo_Tests_Report.json
+      run: npx github-actions-ctrf reports/Servo_Tests_Report.json
