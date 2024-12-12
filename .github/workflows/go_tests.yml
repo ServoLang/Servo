@@ -30,9 +30,6 @@ jobs:
     - name: Install Go Dependencies
       run: go install github.com/ctrf-io/go-ctrf-json-reporter/cmd/go-ctrf-json-reporter@latest
 
-    - name: Install Node.js Dependencies
-      run: npm install
-
     - name: Display Go version
       run: go version
 
