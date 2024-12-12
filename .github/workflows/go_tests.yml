@@ -16,10 +16,23 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
         go-version: ${{ matrix.go-version }}
+
+    - name: Install dependencies
+      run: go install github.com/ctrf-io/go-ctrf-json-reporter/cmd/go-ctrf-json-reporter@latest
 
     - name: Display Go version
       run: go version
@@ -28,10 +41,7 @@ jobs:
       run: go build -v ./src/...
 
     - name: Test
-      run: go test -v ./src/... -json > TestResults-${{ matrix.go-version }}.json
+      run: go test -json ./src/... | go-ctrf-json-reporter -output -Servo_Tests_Report.json
 
-    - name: Upload Go Test Results
-      uses: actions/upload-artifact@v4
-      with:
-        name: Go-results-${{ matrix.go-version }}
-        path: TestResults-${{ matrix.go-version }}.json
+    - name: Publish Test Summary Results
+      run: npx github-actions-ctrf ctrf/Servo_Tests_Report.json
