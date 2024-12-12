@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
-      <change afterPath="$PROJECT_DIR$/src/vm/vm.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vm/vm_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/code_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/code_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repl/repl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/repl/repl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,12 +88,17 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Servo Lang/Servo",
+    "last_opened_file_path": "D:/Servo Lang/Servo/.github/workflows",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Servo Lang\Servo\.github\workflows" />
+    </key>
+  </component>
   <component name="RunManager" selected="Go Build.go build Servo/src">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Servo" />
