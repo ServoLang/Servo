@@ -4,6 +4,7 @@ import (
 	"Servo/src/ast"
 	"Servo/src/code"
 	"Servo/src/object"
+	"fmt"
 )
 
 type Compiler struct {
@@ -34,6 +35,7 @@ func (c *Compiler) Compile(node ast.Node) error {
 			return err
 		}
 
+	// TODO: WE DO MATH EXPRESSIONS HERE
 	case *ast.InfixExpression:
 		err := c.Compile(node.Left)
 		if err != nil {
@@ -45,9 +47,17 @@ func (c *Compiler) Compile(node ast.Node) error {
 			return err
 		}
 
+		switch node.Operator {
+		case "+":
+			c.emit(code.OpAdd)
+		default:
+			return fmt.Errorf("unknown operator %s", node.Operator)
+		}
+
 	case *ast.IntegerLiteral:
 		integer := &object.Integer{Value: node.Value}
 		c.emit(code.OpConstant, c.addConstant(integer))
+
 	}
 
 	return nil
