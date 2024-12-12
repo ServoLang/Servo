@@ -10,15 +10,16 @@ import (
 
 const StackSize = 2048
 
+var True = &object.Boolean{Value: true}
+var False = &object.Boolean{Value: false}
+var Null = &object.Null{}
+
 type VM struct {
 	constants    []object.Object
 	instructions code.Instructions
 	stack        []object.Object
 	sp           int // Always points to the next value. Top of stack is stack[sp-1]
 }
-
-var True = &object.Boolean{Value: true}
-var False = &object.Boolean{Value: false}
 
 func New(bytecode *compiler.Bytecode) *VM {
 	return &VM{
@@ -67,7 +68,7 @@ func (vm *VM) Run() error {
 			}
 
 		case code.OpBang:
-			err := vm.executeOpBangOperator()
+			err := vm.executeBangOperator()
 			if err != nil {
 				return err
 			}
@@ -93,6 +94,12 @@ func (vm *VM) Run() error {
 
 		case code.OpPop:
 			vm.pop()
+
+		case code.OpNull:
+			err := vm.push(Null)
+			if err != nil {
+				return err
+			}
 		}
 	}
 
@@ -203,7 +210,9 @@ func nativeBoolToBooleanObject(input bool) *object.Boolean {
 	return False
 }
 
-func (vm *VM) executeOpBangOperator() error {
+// executeBangOperator returns an opposite value of a boolean expression. Such that 'not'.
+// !true = false, !false = true, etc...
+func (vm *VM) executeBangOperator() error {
 	operand := vm.pop()
 
 	switch operand {
@@ -211,11 +220,15 @@ func (vm *VM) executeOpBangOperator() error {
 		return vm.push(False)
 	case False:
 		return vm.push(True)
+	case Null:
+		return vm.push(True)
 	default:
 		return vm.push(False)
 	}
 }
 
+// executeMinusOperator makes an integer object or return type be a negative representation of itself.
+// 5 == -5, 10 == -10, etc...
 func (vm *VM) executeMinusOperator() error {
 	operand := vm.pop()
 
@@ -227,9 +240,12 @@ func (vm *VM) executeMinusOperator() error {
 	return vm.push(&object.Integer{Value: -value})
 }
 
-// TODO: Return false for negative integer and true for positive integer
+// isTruthy will take in an object and evaluate it. Objects must be either a boolean or integer value.
+// Any number that is less than 0 will result in isTruthy to return false.
+// Any number that is greater than 0 will result in isTruthy to return true.
 func isTruthy(obj object.Object) bool {
 	switch obj := obj.(type) {
+
 	case *object.Boolean:
 		return obj.Value
 	case *object.Integer:
@@ -239,6 +255,8 @@ func isTruthy(obj object.Object) bool {
 		} else {
 			return false
 		}
+	case *object.Null:
+		return false
 	default:
 		return true
 

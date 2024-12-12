@@ -1,4 +1,4 @@
-name: Go AST Tests
+name: AST Tests
 
 on:
   push:

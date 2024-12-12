@@ -1,4 +1,4 @@
-name: Go Compiler Tests
+name: Compiler Tests
 
 on:
   push:
