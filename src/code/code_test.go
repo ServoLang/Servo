@@ -1,7 +1,6 @@
 package code
 
 import (
-	"encoding/binary"
 	"testing"
 )
 
