@@ -15,6 +15,7 @@ const (
 	OpDiv
 	OpPow
 	OpMod
+	OpPointer // TODO: Currently unused.
 
 	OpTrue
 	OpFalse
@@ -34,6 +35,9 @@ const (
 	OpGetGlobal
 	OpSetGlobal
 
+	OpArray
+	OpHash
+
 	OpPop
 )
 
@@ -45,6 +49,7 @@ var definitions = map[Opcode]*Definition{
 	OpDiv:           {"OpDiv", []int{}},
 	OpPow:           {"OpPow", []int{}},
 	OpMod:           {"OpMod", []int{}},
+	OpPointer:       {"OpPointer", []int{}},
 	OpTrue:          {"OpTrue", []int{}},
 	OpFalse:         {"OpFalse", []int{}},
 	OpEqual:         {"OpEqual", []int{}},
@@ -57,6 +62,8 @@ var definitions = map[Opcode]*Definition{
 	OpNull:          {"OpNull", []int{}},
 	OpGetGlobal:     {"OpGetGlobal", []int{2}},
 	OpSetGlobal:     {"OpSetGlobal", []int{2}},
+	OpArray:         {"OpArray", []int{2}},
+	OpHash:          {"OpHash", []int{2}},
 	OpPop:           {"OpPop", []int{}},
 }
 

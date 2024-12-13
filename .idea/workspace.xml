@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/code.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm.go" afterDir="false" />
@@ -54,6 +55,8 @@
   "keyToString": {
     "DefaultGoTemplateProperty": "Go File",
     "Go Build.go build Servo/src.executor": "Run",
+    "Go Test.TestArrayLiterals in Servo/src/compiler.executor": "Run",
+    "Go Test.TestArrayLiterals in Servo/src/vm.executor": "Run",
     "Go Test.TestBooleanExpression in Servo/src/compiler (1).executor": "Run",
     "Go Test.TestBooleanExpression in Servo/src/compiler.executor": "Run",
     "Go Test.TestBooleanExpression in Servo/src/parser.executor": "Run",
@@ -69,6 +72,8 @@
     "Go Test.TestGlobalLetStatements in Servo/src/vm.executor": "Run",
     "Go Test.TestGlobalStatements in Servo/src/compiler (1).executor": "Run",
     "Go Test.TestGlobalStatements in Servo/src/compiler.executor": "Run",
+    "Go Test.TestHashLiterals in Servo/src/compiler.executor": "Run",
+    "Go Test.TestHashLiterals in Servo/src/vm.executor": "Run",
     "Go Test.TestIdentifierExpression in Servo/src/parser.executor": "Run",
     "Go Test.TestIfElseExpression in Servo/src/parser.executor": "Run",
     "Go Test.TestIfExpression in Servo/src/parser.executor": "Run",
@@ -119,7 +124,7 @@
       <recent name="D:\Servo Lang\Servo\reports" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestStringExpressions in Servo/src/vm">
+  <component name="RunManager" selected="Go Test.TestHashLiterals in Servo/src/vm">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$" />
@@ -138,7 +143,7 @@
       <filePath value="$PROJECT_DIR$/src/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestGlobalLetStatements in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestArrayLiterals in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/compiler" />
       <root_directory value="$PROJECT_DIR$" />
@@ -147,10 +152,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestGlobalLetStatements\E$" />
+      <pattern value="^\QTestArrayLiterals\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestGlobalLetStatements in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestArrayLiterals in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/vm" />
       <root_directory value="$PROJECT_DIR$" />
@@ -159,10 +164,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestGlobalLetStatements\E$" />
+      <pattern value="^\QTestArrayLiterals\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestStringExpressions in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestHashLiterals in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/compiler" />
       <root_directory value="$PROJECT_DIR$" />
@@ -171,10 +176,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestStringExpressions\E$" />
+      <pattern value="^\QTestHashLiterals\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestStringExpressions in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestHashLiterals in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/vm" />
       <root_directory value="$PROJECT_DIR$" />
@@ -183,7 +188,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestStringExpressions\E$" />
+      <pattern value="^\QTestHashLiterals\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -198,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestStringExpressions in Servo/src/vm" />
-        <item itemvalue="Go Test.TestStringExpressions in Servo/src/compiler" />
+        <item itemvalue="Go Test.TestHashLiterals in Servo/src/vm" />
+        <item itemvalue="Go Test.TestHashLiterals in Servo/src/compiler" />
+        <item itemvalue="Go Test.TestArrayLiterals in Servo/src/vm" />
+        <item itemvalue="Go Test.TestArrayLiterals in Servo/src/compiler" />
         <item itemvalue="Go Build.go build Servo/src" />
-        <item itemvalue="Go Test.TestGlobalLetStatements in Servo/src/vm" />
-        <item itemvalue="Go Test.TestGlobalLetStatements in Servo/src/compiler" />
       </list>
     </recent_temporary>
   </component>

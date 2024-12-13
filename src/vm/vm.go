@@ -58,41 +58,34 @@ func (vm *VM) Run() error {
 			if err != nil {
 				return err
 			}
-
 		case code.OpEqual, code.OpNotEqual, code.OpGreaterThan:
 			err := vm.executeComparison(op)
 			if err != nil {
 				return err
 			}
-
 		case code.OpTrue:
 			err := vm.push(True)
 			if err != nil {
 				return err
 			}
-
 		case code.OpFalse:
 			err := vm.push(False)
 			if err != nil {
 				return err
 			}
-
 		case code.OpBang:
 			err := vm.executeBangOperator()
 			if err != nil {
 				return err
 			}
-
 		case code.OpMinus:
 			err := vm.executeMinusOperator()
 			if err != nil {
 				return err
 			}
-
 		case code.OpJump:
 			pos := int(code.ReadUint16(vm.instructions[ip+1:]))
 			ip = pos - 1
-
 		case code.OpJumpNotTruthy:
 			pos := int(code.ReadUint16(vm.instructions[ip+1:]))
 			ip += 2
@@ -101,16 +94,13 @@ func (vm *VM) Run() error {
 			if !isTruthy(condition) {
 				ip = pos - 1
 			}
-
 		case code.OpPop:
 			vm.pop()
-
 		case code.OpSetGlobal:
 			globalIndex := code.ReadUint16(vm.instructions[ip+1:])
 			ip += 2
 
 			vm.globals[globalIndex] = vm.pop()
-
 		case code.OpGetGlobal:
 			globalIndex := code.ReadUint16(vm.instructions[ip+1:])
 			ip += 2
@@ -119,13 +109,35 @@ func (vm *VM) Run() error {
 			if err != nil {
 				return err
 			}
+		case code.OpArray:
+			numElements := int(code.ReadUint16(vm.instructions[ip+1:]))
+			ip += 2
 
+			array := vm.buildArray(vm.sp-numElements, vm.sp)
+			vm.sp = vm.sp - numElements
+
+			err := vm.push(array)
+			if err != nil {
+				return err
+			}
+		case code.OpHash:
+			numElements := int(code.ReadUint16(vm.instructions[ip+1:]))
+			ip += 2
+
+			hash, err := vm.buildHash(vm.sp-numElements, vm.sp)
+			if err != nil {
+				return err
+			}
+			vm.sp = vm.sp - numElements
+			err = vm.push(hash)
+			if err != nil {
+				return err
+			}
 		case code.OpNull:
 			err := vm.push(Null)
 			if err != nil {
 				return err
 			}
-
 		default:
 			return nil
 		}
@@ -221,6 +233,7 @@ func (vm *VM) executeComparison(op code.Opcode) error {
 	}
 }
 
+// Compares integer values and pushes a object.Boolean based on if the comparison is true or false
 func (vm *VM) executeIntegerComparison(op code.Opcode, left, right object.Object) error {
 	leftValue := left.(*object.Integer).Value
 	rightValue := right.(*object.Integer).Value
@@ -237,6 +250,7 @@ func (vm *VM) executeIntegerComparison(op code.Opcode, left, right object.Object
 	}
 }
 
+// Makes a boolean value into a pointer to an object.Boolean
 func nativeBoolToBooleanObject(input bool) *object.Boolean {
 	if input {
 		return True
@@ -274,7 +288,8 @@ func (vm *VM) executeMinusOperator() error {
 	return vm.push(&object.Integer{Value: -value})
 }
 
-// TODO: Allow subtraction operations to either append string or remove chars
+// TODO: Allow subtraction operations to either append string or remove chars from front. Works on subtracting from rear.
+// Allows adding strings and integer values together. Also allows subtracting elements from a string.
 func (vm *VM) executeBinaryStringOperation(op code.Opcode, left, right object.Object) error {
 
 	switch op {
@@ -333,4 +348,36 @@ func isTruthy(obj object.Object) bool {
 		return true
 
 	}
+}
+
+// Turns an array of elements into a pointer to an object.Array
+func (vm *VM) buildArray(startIndex, endIndex int) object.Object {
+	elements := make([]object.Object, endIndex-startIndex)
+
+	for i := startIndex; i < endIndex; i++ {
+		elements[i-startIndex] = vm.stack[i]
+	}
+
+	return &object.Array{Elements: elements}
+}
+
+// Turns an list of passed elements into an object.Hash
+func (vm *VM) buildHash(startIndex, endIndex int) (object.Object, error) {
+	hashedPairs := make(map[object.HashKey]object.HashPair)
+
+	for i := startIndex; i < endIndex; i += 2 {
+		key := vm.stack[i]
+		value := vm.stack[i+1]
+
+		pair := object.HashPair{Key: key, Value: value}
+
+		hashKey, ok := key.(object.Hashable)
+		if !ok {
+			return nil, fmt.Errorf("unusable as hash key: %s", key.Type())
+		}
+
+		hashedPairs[hashKey.HashKey()] = pair
+	}
+
+	return &object.Hash{Pairs: hashedPairs}, nil
 }
