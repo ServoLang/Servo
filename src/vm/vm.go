@@ -6,6 +6,7 @@ import (
 	"Servo/src/object"
 	"fmt"
 	"math"
+	"strconv"
 )
 
 const StackSize = 2048
@@ -161,11 +162,17 @@ func (vm *VM) executeBinaryOperation(op code.Opcode) error {
 	leftType := left.Type()
 	rightType := right.Type()
 
-	if leftType == object.INTEGER_OBJ && rightType == object.INTEGER_OBJ {
+	switch {
+	case leftType == object.INTEGER_OBJ && rightType == object.INTEGER_OBJ:
 		return vm.executeBinaryIntegerOperation(op, left, right)
-	}
 
-	return fmt.Errorf("unsupported types for binary operation: %s %s", leftType, rightType)
+	case leftType == object.STRING_OBJ && (rightType == object.STRING_OBJ || rightType == object.INTEGER_OBJ):
+		return vm.executeBinaryStringOperation(op, left, right)
+
+	default:
+		return fmt.Errorf("unsupported types for binary operation: %s %s", leftType, rightType)
+
+	}
 }
 
 // We do binary math triggers in executeBinaryIntegerOperation
@@ -265,6 +272,44 @@ func (vm *VM) executeMinusOperator() error {
 
 	value := operand.(*object.Integer).Value
 	return vm.push(&object.Integer{Value: -value})
+}
+
+// TODO: Allow subtraction operations to either append string or remove chars
+func (vm *VM) executeBinaryStringOperation(op code.Opcode, left, right object.Object) error {
+
+	switch op {
+	case code.OpAdd:
+		leftValue := left.(*object.String).Value
+
+		switch right.Type() {
+		case object.INTEGER_OBJ:
+			rightValue := right.(*object.Integer).Value
+			return vm.push(&object.String{Value: leftValue + strconv.FormatInt(rightValue, 10)})
+		case object.STRING_OBJ:
+			rightValue := right.(*object.String).Value
+			return vm.push(&object.String{Value: leftValue + rightValue})
+
+		}
+
+	case code.OpSub:
+		if right.Type() != object.INTEGER_OBJ {
+			return fmt.Errorf("unsupported type for subtraction: %s", right.Type())
+		}
+
+		leftValue := left.(*object.String).Value
+		rightValue := int(right.(*object.Integer).Value)
+
+		if len(leftValue) < rightValue {
+			return fmt.Errorf("%q is larger than the len of %s (%q)", rightValue, leftValue, len(leftValue))
+		}
+
+		return vm.push(&object.String{Value: leftValue[:len(leftValue)-rightValue]})
+
+	default:
+		return fmt.Errorf("unsupported operation: %d", op)
+	}
+
+	return nil
 }
 
 // isTruthy will take in an object and evaluate it. Objects must be either a boolean or integer value.
