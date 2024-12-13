@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/vm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +20,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$PROJECT_DIR$/../../Go/sdk/go1.23rc1" />
+  <component name="GOROOT" url="file:///usr/lib/go-1.22" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -51,75 +47,76 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Build.go build Servo/src.executor": "Run",
-    "Go Test.TestArrayLiterals in Servo/src/compiler.executor": "Run",
-    "Go Test.TestArrayLiterals in Servo/src/vm.executor": "Run",
-    "Go Test.TestBooleanExpression in Servo/src/compiler (1).executor": "Run",
-    "Go Test.TestBooleanExpression in Servo/src/compiler.executor": "Run",
-    "Go Test.TestBooleanExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestBooleanExpressions in Servo/src/vm (1).executor": "Run",
-    "Go Test.TestBooleanExpressions in Servo/src/vm.executor": "Run",
-    "Go Test.TestCallExpressionParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestConditionals in Servo/src/compiler.executor": "Run",
-    "Go Test.TestConditionals in Servo/src/vm.executor": "Run",
-    "Go Test.TestDefine in Servo/src/compiler.executor": "Coverage",
-    "Go Test.TestFunctionLiteralParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestFunctionParameterParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestGlobalLetStatements in Servo/src/compiler.executor": "Run",
-    "Go Test.TestGlobalLetStatements in Servo/src/vm.executor": "Run",
-    "Go Test.TestGlobalStatements in Servo/src/compiler (1).executor": "Run",
-    "Go Test.TestGlobalStatements in Servo/src/compiler.executor": "Run",
-    "Go Test.TestHashLiterals in Servo/src/compiler.executor": "Run",
-    "Go Test.TestHashLiterals in Servo/src/vm.executor": "Run",
-    "Go Test.TestIdentifierExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestIfElseExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestIfExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestIndexExpressions in Servo/src/compiler.executor": "Run",
-    "Go Test.TestIndexExpressions in Servo/src/vm.executor": "Run",
-    "Go Test.TestInstructionsString in Servo/src/code.executor": "Run",
-    "Go Test.TestInstructionsString in Servo/src/compiler.executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/compiler (1).executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/compiler.executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/vm (1).executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/vm.executor": "Run",
-    "Go Test.TestIntegerLiteralExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestLetStatements in Servo/src/parser.executor": "Run",
-    "Go Test.TestMacroLiteralParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestMake in Servo/src/code.executor": "Run",
-    "Go Test.TestOperatorPrecedenceParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingArrayLiterals in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingEmptyHashLiteral in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingHashLiteralsStringKeys in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingHashLiteralsWithExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingIndexExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingInfixExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingPrefixExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestReadOperands in Servo/src/compiler.executor": "Run",
-    "Go Test.TestResolveGlobal in Servo/src/compiler.executor": "Run",
-    "Go Test.TestReturnStatements in Servo/src/parser.executor": "Run",
-    "Go Test.TestStringExpressions in Servo/src/compiler.executor": "Run",
-    "Go Test.TestStringExpressions in Servo/src/vm.executor": "Run",
-    "Go Test.TestStringLiteralExpression in Servo/src/parser.executor": "Run",
-    "Go Test.go test Servo/src/code.executor": "Run",
-    "Go Test.go test Servo/src/compiler.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Servo Lang/Servo/.github/workflows",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build Servo/src.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestArrayLiterals in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestArrayLiterals in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestBooleanExpression in Servo/src/compiler (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestBooleanExpression in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestBooleanExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestBooleanExpressions in Servo/src/vm (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestBooleanExpressions in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestCallExpressionParsing in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestConditionals in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestConditionals in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestDefine in Servo/src/compiler.executor&quot;: &quot;Coverage&quot;,
+    &quot;Go Test.TestFunctionLiteralParsing in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestFunctionParameterParsing in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestGlobalLetStatements in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestGlobalLetStatements in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestGlobalStatements in Servo/src/compiler (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestGlobalStatements in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestHashLiterals in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestHashLiterals in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIdentifierExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIfElseExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIfExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIndexExpressions in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIndexExpressions in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestInstructionsString in Servo/src/code.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestInstructionsString in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIntegerArithmetic in Servo/src/compiler (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIntegerArithmetic in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIntegerArithmetic in Servo/src/vm (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIntegerArithmetic in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestIntegerLiteralExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestLetStatements in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestMacroLiteralParsing in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestMake in Servo/src/code.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestOperatorPrecedenceParsing in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingArrayLiterals in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingEmptyHashLiteral in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingHashLiteralsStringKeys in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingHashLiteralsWithExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingIndexExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingInfixExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParsingPrefixExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestReadOperands in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestResolveGlobal in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestReturnStatements in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestStringExpressions in Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestStringExpressions in Servo/src/vm.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestStringLiteralExpression in Servo/src/parser.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test Servo/src/code.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.go test Servo/src/compiler.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/wylan/Documents/Projects/ServoLang/Servo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Servo Lang\Servo\.github\workflows" />
@@ -216,8 +213,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-d297c17c1fbd-b87a2f8923ed-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-243.21565.208" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-GO-243.21565.208" />
+        <option value="bundled-gosdk-d297c17c1fbd-d82d926f19eb-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-243.22562.186" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-GO-243.22562.186" />
       </set>
     </attachedChunks>
   </component>
