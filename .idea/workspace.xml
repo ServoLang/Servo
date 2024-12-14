@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
+      <change afterPath="$PROJECT_DIR$/src/vm/frame.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/code.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/compiler_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/builtins.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/evaluator/builtins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/evaluator.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/evaluator/evaluator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/object.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +66,16 @@
     "Go Test.TestBooleanExpressions in Servo/src/vm (1).executor": "Run",
     "Go Test.TestBooleanExpressions in Servo/src/vm.executor": "Run",
     "Go Test.TestCallExpressionParsing in Servo/src/parser.executor": "Run",
+    "Go Test.TestCompilerScopes in Servo/src/compiler.executor": "Run",
     "Go Test.TestConditionals in Servo/src/compiler.executor": "Run",
     "Go Test.TestConditionals in Servo/src/vm.executor": "Run",
     "Go Test.TestDefine in Servo/src/compiler.executor": "Coverage",
+    "Go Test.TestFunctionCalls in Servo/src/compiler.executor": "Run",
     "Go Test.TestFunctionLiteralParsing in Servo/src/parser.executor": "Run",
     "Go Test.TestFunctionParameterParsing in Servo/src/parser.executor": "Run",
+    "Go Test.TestFunctions in Servo/src/compiler (1).executor": "Run",
+    "Go Test.TestFunctions in Servo/src/compiler.executor": "Run",
+    "Go Test.TestFunctionsWithoutReturnValue in Servo/src/compiler.executor": "Run",
     "Go Test.TestGlobalLetStatements in Servo/src/compiler.executor": "Run",
     "Go Test.TestGlobalLetStatements in Servo/src/vm.executor": "Run",
     "Go Test.TestGlobalStatements in Servo/src/compiler (1).executor": "Run",
@@ -105,6 +113,7 @@
     "Go Test.TestStringLiteralExpression in Servo/src/parser.executor": "Run",
     "Go Test.go test Servo/src/code.executor": "Run",
     "Go Test.go test Servo/src/compiler.executor": "Run",
+    "Go Test.go test Servo/src/vm.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -145,7 +154,7 @@
       <filePath value="$PROJECT_DIR$/src/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestHashLiterals in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFunctionCalls in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/compiler" />
       <root_directory value="$PROJECT_DIR$" />
@@ -154,22 +163,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestHashLiterals\E$" />
+      <pattern value="^\QTestFunctionCalls\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestHashLiterals in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$/src/vm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Servo/src/vm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestHashLiterals\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestIndexExpressions in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFunctionsWithoutReturnValue in Servo/src/compiler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/compiler" />
       <root_directory value="$PROJECT_DIR$" />
@@ -178,10 +175,10 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestIndexExpressions\E$" />
+      <pattern value="^\QTestFunctionsWithoutReturnValue\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestIndexExpressions in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestIntegerArithmetic in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="Servo" />
       <working_directory value="$PROJECT_DIR$/src/vm" />
       <root_directory value="$PROJECT_DIR$" />
@@ -190,7 +187,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestIndexExpressions\E$" />
+      <pattern value="^\QTestIntegerArithmetic\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -203,13 +200,24 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="go test Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Servo" />
+      <working_directory value="$PROJECT_DIR$/src/vm" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="Servo/src/vm" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build Servo/src" />
-        <item itemvalue="Go Test.TestIndexExpressions in Servo/src/vm" />
-        <item itemvalue="Go Test.TestIndexExpressions in Servo/src/compiler" />
-        <item itemvalue="Go Test.TestHashLiterals in Servo/src/vm" />
-        <item itemvalue="Go Test.TestHashLiterals in Servo/src/compiler" />
+        <item itemvalue="Go Test.go test Servo/src/vm" />
+        <item itemvalue="Go Test.TestIntegerArithmetic in Servo/src/vm" />
+        <item itemvalue="Go Test.TestFunctionCalls in Servo/src/compiler" />
+        <item itemvalue="Go Test.TestFunctionsWithoutReturnValue in Servo/src/compiler" />
       </list>
     </recent_temporary>
   </component>

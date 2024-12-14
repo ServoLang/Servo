@@ -8,7 +8,7 @@ import (
 var builtins = map[string]*object.Builtin{
 	// Gets length of an array or string
 	"len": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			if len(args) != 1 {
 				return newError("wrong number of arguments. got=%d, want=1", len(args))
 			}
@@ -26,7 +26,7 @@ var builtins = map[string]*object.Builtin{
 
 	// Gets first object in an array. Index: 0
 	"first": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			if len(args) != 1 {
 				return newError("wrong number of arguments. got=%d, want=1", len(args))
 			}
@@ -45,7 +45,7 @@ var builtins = map[string]*object.Builtin{
 
 	// Gets last object in an array.
 	"last": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			if len(args) != 1 {
 				return newError("wrong number of arguments. got=%d, want=1", len(args))
 			}
@@ -65,7 +65,7 @@ var builtins = map[string]*object.Builtin{
 
 	// Creates an array and takes in an array. Creates an array of an array. Obj[][]
 	"rest": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			if len(args) != 1 {
 				return newError("wrong number of arguments. got=%d, want=1", len(args))
 			}
@@ -88,7 +88,7 @@ var builtins = map[string]*object.Builtin{
 	// Adds an element to an existing array and returns the new array
 	// TODO: Reassign object to be value of new array
 	"push": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			if len(args) != 2 {
 				return newError("wrong number of arguments. got=%d, want=2", len(args))
 			}
@@ -109,7 +109,7 @@ var builtins = map[string]*object.Builtin{
 
 	// Removes an object from an array
 	"rm": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			if len(args) != 2 {
 				return newError("wrong number of arguments. got=%d, want=2", len(args))
 			}
@@ -135,7 +135,7 @@ var builtins = map[string]*object.Builtin{
 
 	// Print on a single line
 	"print": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			for _, arg := range args {
 				fmt.Print(arg.Inspect())
 			}
@@ -146,7 +146,7 @@ var builtins = map[string]*object.Builtin{
 
 	// Print each arg on a separate line
 	"println": {
-		Fn: func(args ...object.Object) object.Object {
+		Function: func(args ...object.Object) object.Object {
 			for _, arg := range args {
 				fmt.Println(arg.Inspect())
 			}
