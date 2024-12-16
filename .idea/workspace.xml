@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8bd7a9a-44f8-4c27-9294-88272943b6c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Math.svo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test.svo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestClass.svo" beforeDir="false" afterPath="$PROJECT_DIR$/TestClass.svo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestClass.svo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/Resolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servo/Servo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/Servo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/ast/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/ast/Expr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servo/ast/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/ast/Stmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/env/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/env/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servo/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/token/TokenType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +81,7 @@
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/home/wylan/Documents/Projects/ServoLang/Servo/src/Main.java",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "vue.rearranger.settings.migration": "true"
@@ -158,7 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734222281738</updated>
       <workItem from="1734222282856" duration="5850000" />
-      <workItem from="1734229694366" duration="34673000" />
+      <workItem from="1734229694366" duration="37846000" />
     </task>
     <servers />
   </component>

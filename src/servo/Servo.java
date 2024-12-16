@@ -31,7 +31,7 @@ public class Servo {
             runFile(args[0]);
         } else {
             //runPrompt();
-            runFile("/home/wylan/Documents/Projects/ServoLang/Servo/TestClass.svo");
+            runFile("/home/wylan/Documents/Projects/ServoLang/Servo/Test.svo");
         }
     }
 

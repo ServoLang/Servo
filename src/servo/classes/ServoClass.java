@@ -7,13 +7,16 @@ import servo.interpreter.Interpreter;
 import java.util.List;
 import java.util.Map;
 
-public class ServoClass implements ServoCallable {
+public class ServoClass extends ServoInstance implements ServoCallable {
 
     private final String name;
+    private final ServoClass superClass;
     private final Map<String, ServoFunction> methods;
 
-    public ServoClass(String name, Map<String, ServoFunction> methods) {
+    public ServoClass(String name, ServoClass superClass, Map<String, ServoFunction> methods) {
+        super(null);
         this.name = name;
+        this.superClass = superClass;
         this.methods = methods;
     }
 
@@ -22,11 +25,19 @@ public class ServoClass implements ServoCallable {
             return getMethods().get(name);
         }
 
+        if (getSuperClass() != null) {
+            return getSuperClass().findMethod(name);
+        }
+
         return null;
     }
 
     public String getName() {
         return name;
+    }
+
+    public ServoClass getSuperClass() {
+        return superClass;
     }
 
     public Map<String, ServoFunction> getMethods() {

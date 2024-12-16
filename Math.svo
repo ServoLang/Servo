@@ -1,0 +1,36 @@
+class Math {
+
+    init() {}
+
+    pi() {
+        return 3.141592653589793;
+    }
+
+    E() {
+        return 2.718281828459045;
+    }
+
+    TAU() {
+        return 2.0 * pi();
+    }
+
+    degToRadians() {
+        return 0.017453292519943295;
+    }
+
+    radToDegrees() {
+        return 57.29577951308232;
+    }
+
+    pow(a, b) {
+        return a ^ b;
+    }
+
+    mul(a, b) {
+        return a * b;
+    }
+
+}
+
+var math = Math();
+print(Math().TAU());

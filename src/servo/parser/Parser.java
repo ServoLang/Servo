@@ -47,6 +47,13 @@ public class Parser {
 
     private Stmt classDeclaration() {
         Token name = consume(IDENTIFIER, "Expect class name.");
+
+        Expr.Variable superclass = null;
+        if (match(RIGHT_POINTER)) {
+            consume(IDENTIFIER, "Expect superclass name.");
+            superclass = new Expr.Variable(previous());
+        }
+
         consume(LEFT_BRACE, "Expect '{' before class body.");
 
         List<Stmt.Function> methods = new ArrayList<>();
@@ -55,7 +62,7 @@ public class Parser {
         }
 
         consume(RIGHT_BRACE, "Expect '}' after class body.");
-        return new Stmt.Class(name, methods);
+        return new Stmt.Class(name, superclass, methods);
     }
 
     // Macro definitions
@@ -173,16 +180,8 @@ public class Parser {
     }
 
     // TODO: Remove need to declare function before init method
+    // TODO: Allow variable declarations.
     private Stmt.Function function(String kind) {
-        boolean isMethod = kind.equals("method");
-        boolean isStatic = false;
-
-        if (peek().type == STATIC && isMethod) {
-            isStatic = true;
-            consume(STATIC, "Static method.");
-        }
-
-        if (isMethod) consume(FUNCTION, "Function declaration expected.");
         Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
         consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
         List<Token> parameters = new ArrayList<>();
@@ -198,7 +197,7 @@ public class Parser {
         consume(RIGHT_PAREN, "Expect ')' after parameters.");
         consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
         List<Stmt> body = block();
-        return new Stmt.Function(name, parameters, body, isStatic);
+        return new Stmt.Function(name, parameters, body);
     }
 
     private List<Stmt> block() {
@@ -349,6 +348,13 @@ public class Parser {
 
         if (match(INTEGER, FLOAT, STRING)) {
             return new Expr.Literal(previous().literal);
+        }
+
+        if (match(SUPER)) {
+            Token keyword = previous();
+            consume(DOT, "Expect '.' after 'super'.");
+            Token method = consume(IDENTIFIER, "Expect superclass method name.");
+            return new Expr.Super(keyword, method);
         }
 
         if (match((THIS))) return new Expr.This(previous());

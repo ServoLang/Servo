@@ -33,6 +33,14 @@ public class Environment {
         return environment;
     }
 
+    public Environment getEnclosing() {
+        return enclosing;
+    }
+
+    public Map<String, Object> getValues() {
+        return values;
+    }
+
     public Object getAt(int distance, String name) {
         return ancestor(distance).values.get(name);
     }
