@@ -30,7 +30,8 @@ public class Servo {
         } else if (args.length == 1) {
             runFile(args[0]);
         } else {
-            runPrompt();
+            //runPrompt();
+            runFile("/home/wylan/Documents/Projects/ServoLang/Servo/TestClass.svo");
         }
     }
 

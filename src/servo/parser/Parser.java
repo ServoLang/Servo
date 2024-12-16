@@ -58,7 +58,7 @@ public class Parser {
         return new Stmt.Class(name, methods);
     }
 
-    // TODO: Macro definitions
+    // Macro definitions
     private Stmt statement() {
         if (match(CLASS)) return classDeclaration();
         if (match(FUNCTION)) return function("function");
@@ -127,7 +127,6 @@ public class Parser {
         return new Stmt.If(condition, thenBranch, elseBranch);
     }
 
-    // TODO: Expects a semicolon. Do we want this?
     private Stmt printStatement() {
         consume(LEFT_PAREN, "Expect '(' after 'print'.");
         Expr value = expression();
@@ -167,21 +166,30 @@ public class Parser {
         return new Stmt.While(condition, body);
     }
 
-    // TODO: Expects a semicolon. Do we want this?
     private Stmt expressionStatement() {
         Expr expr = expression();
         consume(SEMICOLON, "Expect ';' after expression.");
         return new Stmt.Expression(expr);
     }
 
+    // TODO: Remove need to declare function before init method
     private Stmt.Function function(String kind) {
+        boolean isMethod = kind.equals("method");
+        boolean isStatic = false;
+
+        if (peek().type == STATIC && isMethod) {
+            isStatic = true;
+            consume(STATIC, "Static method.");
+        }
+
+        if (isMethod) consume(FUNCTION, "Function declaration expected.");
         Token name = consume(IDENTIFIER, "Expect " + kind + " name.");
         consume(LEFT_PAREN, "Expect '(' after " + kind + " name.");
         List<Token> parameters = new ArrayList<>();
         if (!check(RIGHT_PAREN)) {
             do {
                 if (parameters.size() >= 255) {
-                    error(peek(), "Can't have more than 255 parameters.");
+                    throw error(peek(), "Can't have more than 255 parameters.");
                 }
                 parameters.add(consume(IDENTIFIER, "Expect parameter name."));
             } while (match(COMMA));
@@ -190,7 +198,7 @@ public class Parser {
         consume(RIGHT_PAREN, "Expect ')' after parameters.");
         consume(LEFT_BRACE, "Expect '{' before " + kind + " body.");
         List<Stmt> body = block();
-        return new Stmt.Function(name, parameters, body);
+        return new Stmt.Function(name, parameters, body, isStatic);
     }
 
     private List<Stmt> block() {
@@ -208,19 +216,18 @@ public class Parser {
         Expr expr = or();
 
         // prevents reassignment of constants.
-        if (match(EQUAL) && previousprevious().type != CONST) {
+        if (match(EQUAL) && previousPrevious().type != CONST) {
             Token equals = previous();
             Expr value = assignment();
             if (expr instanceof Expr.Variable) {
                 Token name = ((Expr.Variable) expr).name;
                 return new Expr.Assign(name, value);
-            } else if (expr instanceof Expr.Get) {
-                Expr.Get get = (Expr.Get) expr;
+            } else if (expr instanceof Expr.Get get) {
                 return new Expr.Set(get.object, get.name, value);
 
             }
 
-            error(equals, "Invalid assignment target.");
+            throw error(equals, "Invalid assignment target.");
         }
 
         return expr;
@@ -308,7 +315,7 @@ public class Parser {
         if (!check(RIGHT_PAREN)) {
             do {
                 if (arguments.size() >= 255) {
-                    error(peek(), "Can't have more than 255 arguments.");
+                    throw error(peek(), "Can't have more than 255 arguments.");
                 }
                 arguments.add(expression());
             } while (match(COMMA));
@@ -396,7 +403,7 @@ public class Parser {
         return tokens.get(current - 1);
     }
 
-    private Token previousprevious() {
+    private Token previousPrevious() {
         return tokens.get(current - 2);
     }
 
@@ -412,6 +419,7 @@ public class Parser {
 
             switch (peek().type) {
                 case CLASS:
+                case STATIC:
                 case FOR:
                 case FUNCTION:
                 case IF:

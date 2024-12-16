@@ -5,92 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8bd7a9a-44f8-4c27-9294-88272943b6c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Servo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestClass.svo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/Resolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/Servo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/ast/Expr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/ast/Stmt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/classes/ServoInstance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/env/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/error/RuntimeError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/exception/Return.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/functions/ServoCallable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/functions/ServoFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/parser/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/token/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/token/TokenType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_ast_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_ast_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_code_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_code_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_compiler_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_compiler_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_evaluator_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_evaluator_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_lexer_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_lexer_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_object_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_object_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_parser_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_parser_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_servovm_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_servovm_tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Servo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logos/Servo Mascot-transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/Servo Mascot-transparent.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logos/Servo Mascot.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/Servo Mascot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logos/servo-retro--white-bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/servo-retro--white-bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logos/servo-retro--white-bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/logos/servo-retro--white-bg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logos/servo-retro.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/servo-retro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-AST-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Code-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Compiler-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Coverage-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Evaluator-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Lexer-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Object-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Servo-Parser-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/ServoVM-Tests-Report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/research/FileStructure.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/ast.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/ast_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/modify.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ast/modify_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/code_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/symbol_table.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/symbol_table_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/builtins.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/evaluator.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/evaluator_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/macro_expansion.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/macro_expansion_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/quote_unquote.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluator/quote_unquote_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexer/lexer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lexer/lexer_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/environment.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/object.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/object_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parser.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parser_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repl/repl.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/token/token.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/frame.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/SomeObject.svo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/math.svo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test.svo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestClass.svo" beforeDir="false" afterPath="$PROJECT_DIR$/TestClass.svo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/Servo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/Servo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/ast/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/ast/Stmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/token/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/token/TokenType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "jServo",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/wylan/Documents/Projects/ServoLang/Servo",
     "node.js.detected.package.eslint": "true",
@@ -215,6 +137,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Servo" />
+        <item itemvalue="Application.GenerateAst" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +158,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734222281738</updated>
       <workItem from="1734222282856" duration="5850000" />
-      <workItem from="1734229694366" duration="30155000" />
+      <workItem from="1734229694366" duration="34673000" />
     </task>
     <servers />
   </component>

@@ -1,8 +1,15 @@
-class Foo {
-    init() {
-        print(this)
+class Math {
+    function init() {}
+
+    static function pow(a, b) {
+        return a ^ b;
     }
+
+    static function mul(a, b) {
+        return a * b;
+    }
+
 }
 
-var foo = Foo();
-print(foo.init());
+var math = Math();
+print(Math().pow(2, math.mul(2, 2)) * 4 / 3 + 0.5);
