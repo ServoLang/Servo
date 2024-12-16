@@ -1,13 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="667e085a-183c-48c4-8c2b-bb0cf7e87834" name="Changes" comment="added go.mod">
+    <list default="true" id="f8bd7a9a-44f8-4c27-9294-88272943b6c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Servo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestClass.svo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/Resolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/Servo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/ast/Expr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/ast/Stmt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/classes/ServoInstance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/env/Environment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/error/RuntimeError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/exception/Return.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/functions/ServoCallable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/functions/ServoFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/parser/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/token/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/token/TokenType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_ast_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_ast_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_code_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_code_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_compiler_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_compiler_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_evaluator_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_evaluator_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_lexer_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_lexer_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_object_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_object_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_parser_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_parser_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_servovm_tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_servovm_tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/go_tests_coverage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Servo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vm/vm_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/vm/vm_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logos/Servo Mascot-transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/Servo Mascot-transparent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logos/Servo Mascot.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/Servo Mascot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logos/servo-retro--white-bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/servo-retro--white-bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logos/servo-retro--white-bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/logos/servo-retro--white-bg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logos/servo-retro.png" beforeDir="false" afterPath="$PROJECT_DIR$/logos/servo-retro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-AST-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Code-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Compiler-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Coverage-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Evaluator-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Lexer-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Object-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Servo-Parser-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/ServoVM-Tests-Report.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/research/FileStructure.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/ast.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/ast_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/modify.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ast/modify_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/code.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/code_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/compiler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/compiler_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/symbol_table.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/symbol_table_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/builtins.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/evaluator.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/evaluator_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/macro_expansion.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/macro_expansion_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/quote_unquote.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluator/quote_unquote_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lexer/lexer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lexer/lexer_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/environment.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/object.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/object_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/parser.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/parser_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repl/repl.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/token/token.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/frame.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/vm.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vm/vm_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/SomeObject.svo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/math.svo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test.svo" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +100,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///usr/lib/go-1.22" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -34,13 +117,17 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ServoLang/Servo.git&quot;,
-    &quot;accountId&quot;: &quot;7ebd52ac-b7f1-4b2f-ac45-9ae65c640b64&quot;
+    &quot;accountId&quot;: &quot;776c32bc-74a5-4396-a4ad-f94348caafe3&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/servo/ast/Expr.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/servo/ast/Stmt.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 6
 }</component>
-  <component name="ProjectId" id="2q5IWKv6PEWaPF5srlSIjKlYmua" />
+  <component name="ProjectId" id="2qEKQrMIcP485KmrHUvDiIcNfUL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -50,195 +137,109 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Build.go build Servo/src.executor": "Run",
-    "Go Test.TestArrayLiterals in Servo/src/compiler.executor": "Run",
-    "Go Test.TestArrayLiterals in Servo/src/vm.executor": "Run",
-    "Go Test.TestBooleanExpression in Servo/src/compiler (1).executor": "Run",
-    "Go Test.TestBooleanExpression in Servo/src/compiler.executor": "Run",
-    "Go Test.TestBooleanExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestBooleanExpressions in Servo/src/vm (1).executor": "Run",
-    "Go Test.TestBooleanExpressions in Servo/src/vm.executor": "Run",
-    "Go Test.TestCallExpressionParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestCallingFunctionsWithoutArguments in Servo/src/vm.executor": "Run",
-    "Go Test.TestConditionals in Servo/src/compiler.executor": "Run",
-    "Go Test.TestConditionals in Servo/src/vm.executor": "Run",
-    "Go Test.TestDefine in Servo/src/compiler.executor": "Coverage",
-    "Go Test.TestFirstClassFunctions in Servo/src/vm.executor": "Run",
-    "Go Test.TestFunctionLiteralParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestFunctionParameterParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestFunctionsWithReturnStatement in Servo/src/vm.executor": "Run",
-    "Go Test.TestFunctionsWithoutReturnValue in Servo/src/vm.executor": "Run",
-    "Go Test.TestGlobalLetStatements in Servo/src/compiler.executor": "Run",
-    "Go Test.TestGlobalLetStatements in Servo/src/vm.executor": "Run",
-    "Go Test.TestGlobalStatements in Servo/src/compiler (1).executor": "Run",
-    "Go Test.TestGlobalStatements in Servo/src/compiler.executor": "Run",
-    "Go Test.TestHashLiterals in Servo/src/compiler.executor": "Run",
-    "Go Test.TestHashLiterals in Servo/src/vm.executor": "Run",
-    "Go Test.TestIdentifierExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestIfElseExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestIfExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestIndexExpressions in Servo/src/compiler.executor": "Run",
-    "Go Test.TestIndexExpressions in Servo/src/vm.executor": "Run",
-    "Go Test.TestInstructionsString in Servo/src/code.executor": "Run",
-    "Go Test.TestInstructionsString in Servo/src/compiler.executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/compiler (1).executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/compiler.executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/vm (1).executor": "Run",
-    "Go Test.TestIntegerArithmetic in Servo/src/vm.executor": "Run",
-    "Go Test.TestIntegerLiteralExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestLetStatements in Servo/src/parser.executor": "Run",
-    "Go Test.TestMacroLiteralParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestMake in Servo/src/code.executor": "Run",
-    "Go Test.TestOperatorPrecedenceParsing in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingArrayLiterals in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingEmptyHashLiteral in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingHashLiteralsStringKeys in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingHashLiteralsWithExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingIndexExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingInfixExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestParsingPrefixExpression in Servo/src/parser.executor": "Run",
-    "Go Test.TestReadOperands in Servo/src/compiler.executor": "Run",
-    "Go Test.TestResolveGlobal in Servo/src/compiler.executor": "Run",
-    "Go Test.TestReturnStatements in Servo/src/parser.executor": "Run",
-    "Go Test.TestStringExpressions in Servo/src/compiler.executor": "Run",
-    "Go Test.TestStringExpressions in Servo/src/vm.executor": "Run",
-    "Go Test.TestStringLiteralExpression in Servo/src/parser.executor": "Run",
-    "Go Test.go test Servo/src/code.executor": "Run",
-    "Go Test.go test Servo/src/compiler.executor": "Run",
-    "Go Test.go test Servo/src/vm.executor": "Run",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.AstPrinter.executor": "Run",
+    "Application.GenerateAst.executor": "Run",
+    "Application.Servo.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "/home/wylan",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/wylan/Documents/Projects/ServoLang/Servo",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "onboarding.tips.debug.path": "/home/wylan/Documents/Projects/ServoLang/Servo/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Servo Lang\Servo\.github\workflows" />
-      <recent name="D:\Servo Lang\Servo\reports" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestFirstClassFunctions in Servo/src/vm">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+  <component name="RunManager" selected="Application.Servo">
+    <configuration name="AstPrinter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="servo.ast.AstPrinter" />
       <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="servo.ast.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="TestCallingFunctionsWithoutArguments in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="GenerateAst" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="servo.tool.GenerateAst" />
       <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$/src/vm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Servo/src/vm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestCallingFunctionsWithoutArguments\E$" />
-      <method v="2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="servo.tool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="TestFirstClassFunctions in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Servo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="servo.Servo" />
       <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$/src/vm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Servo/src/vm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestFirstClassFunctions\E$" />
-      <method v="2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="servo.token.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="TestFunctionsWithReturnStatement in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$/src/vm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Servo/src/vm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestFunctionsWithReturnStatement\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestFunctionsWithoutReturnValue in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$/src/vm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Servo/src/vm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestFunctionsWithoutReturnValue\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestIntegerArithmetic in Servo/src/vm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$/src/vm" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="Servo/src/vm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestIntegerArithmetic\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="Servo" />
-      <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Application.AstPrinter" />
+      <item itemvalue="Application.GenerateAst" />
+      <item itemvalue="Application.Servo" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestFirstClassFunctions in Servo/src/vm" />
-        <item itemvalue="Go Test.TestFunctionsWithoutReturnValue in Servo/src/vm" />
-        <item itemvalue="Go Test.TestFunctionsWithReturnStatement in Servo/src/vm" />
-        <item itemvalue="Go Test.TestCallingFunctionsWithoutArguments in Servo/src/vm" />
-        <item itemvalue="Go Test.TestIntegerArithmetic in Servo/src/vm" />
+        <item itemvalue="Application.Servo" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-d297c17c1fbd-d82d926f19eb-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-243.22562.186" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-GO-243.22562.186" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8bd7a9a-44f8-4c27-9294-88272943b6c2" name="Changes" comment="" />
+      <created>1734222281738</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734222281738</updated>
+      <workItem from="1734222282856" duration="5850000" />
+      <workItem from="1734229694366" duration="30155000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="added go.mod" />
-    <option name="LAST_COMMIT_MESSAGE" value="added go.mod" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Servo$TestDefine_in_Servo_src_compiler.out" NAME="TestDefine in Servo/src/compiler Coverage Results" MODIFIED="1734045928355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

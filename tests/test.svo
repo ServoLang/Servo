@@ -1,7 +1,0 @@
-function makeAdder (x, y) -> Void {
-    x + y
-}
-
-var obj = 'Hello, World!'
-
-print(obj)

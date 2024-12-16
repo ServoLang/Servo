@@ -33,17 +33,17 @@ jobs:
     - name: Display Go version
       run: go version
 
-    - name: Build Servo
+    - name: Build servo.Servo
       run: go build -v ./src/...
 
-    - name: Test Servo
-      run: go test -json ./src/ast/... | go-ctrf-json-reporter -output reports/Servo-AST-Tests-Report.json
+    - name: Test servo.Servo
+      run: go test -json ./src/ast/... | go-ctrf-json-reporter -output reports/servo.Servo-AST-Tests-Report.json
 
-    - name: Publish Servo Test Summary Results
-      run: npx github-actions-ctrf reports/Servo-AST-Tests-Report.json
+    - name: Publish servo.Servo Test Summary Results
+      run: npx github-actions-ctrf reports/servo.Servo-AST-Tests-Report.json
 
     - name: Publish
       uses: actions/upload-artifact@v4
       with:
-        name: Servo-Tests-Report
-        path: reports/Servo-AST-Tests-Report.json
+        name: servo.Servo-Tests-Report
+        path: reports/servo.Servo-AST-Tests-Report.json
