@@ -1,8 +1,8 @@
 <img src="https://raw.githubusercontent.com/SuperScary/Servo/refs/heads/main/logos/Servo%20Mascot-transparent.png" width="250" style="display: block; margin: 0 auto"/>
 
-# servo.Servo Programming Language
+# Servo Programming Language
 
-**servo.Servo** is a high-level, object-oriented programming language designed for modern software development. With an emphasis on simplicity, scalability, and efficiency, servo.Servo offers robust features to empower developers to write clean, maintainable, and performant code. servo.Servo is versatile, supporting applications ranging from web development to complex system architectures.
+**Servo** is a high-level, object-oriented programming language designed for modern software development. With an emphasis on simplicity, scalability, and efficiency, Servo offers robust features to empower developers to write clean, maintainable, and performant code. Servo is versatile, supporting applications ranging from web development to complex system architectures.
 
 ---
 
@@ -10,7 +10,7 @@
 
 - **Object-Oriented Design**: Full support for encapsulation, inheritance, and polymorphism.
 - **Strong Typing with Flexibility**: Combines static typing for safety and dynamic capabilities where needed.
-- **Memory Safety**: servo.Servo includes built-in safeguards against memory leaks and null-pointer dereferencing.
+- **Memory Safety**: Servo includes built-in safeguards against memory leaks and null-pointer dereferencing.
 - **Concurrency Made Easy**: First-class support for concurrent programming with lightweight threads and asynchronous operations.
 - **Cross-Platform Support**: Write code once and deploy it anywhere.
 - **Modern Syntax**: Inspired by popular languages like Python, Swift, and Java, with an emphasis on readability and developer productivity.
@@ -21,10 +21,10 @@
 
 ## Example Code
 
-Here’s a quick example of servo.Servo’s syntax:
+Here’s a quick example of Servo’s syntax:
 
 ```servo
-// A simple "Hello, World!" program in servo.Servo
+// A simple "Hello, World!" program in Servo
 public class Greeter {
     // Property
     var greeting -> String;
@@ -51,7 +51,7 @@ greeter.sayHello();
 
 ### Installation
 
-1. Download the latest version of servo.Servo from the [official website](https://example.com/servo).
+1. Download the latest version of Servo from the [official website](https://servolang.com/downloads).
 2. Install the CLI using the installer for your platform.
 3. Verify the installation:
    ```bash
@@ -60,7 +60,7 @@ greeter.sayHello();
 
 ### Writing Your First Program
 
-1. Create a new servo.Servo file:
+1. Create a new Servo file:
    ```bash
    touch main.svo
    ```
@@ -76,7 +76,7 @@ greeter.sayHello();
 
 ### Variables and Types
 
-servo.Servo supports both type inference and explicit type declarations:
+Servo supports both type inference and explicit type declarations:
 
 ```servo
 let inferredVar = 42;      // Type inferred as Int
@@ -85,7 +85,7 @@ let explicitVar -> String = "Hello";
 
 ### Classes and Objects
 
-servo.Servo uses a clean and modern approach to object-oriented programming:
+Servo uses a clean and modern approach to object-oriented programming:
 
 ```servo
 private class Animal {
@@ -106,7 +106,7 @@ dog.speak();
 
 ### Asynchronous Programming
 
-servo.Servo makes asynchronous operations intuitive:
+Servo makes asynchronous operations intuitive:
 
 ```servo
 async fetchData() -> String {
@@ -122,7 +122,7 @@ print(data);
 
 ## Contributing
 
-We welcome contributions to servo.Servo! Whether you're fixing bugs, suggesting features, or enhancing documentation, we appreciate your input.
+We welcome contributions to Servo! Whether you're fixing bugs, suggesting features, or enhancing documentation, we appreciate your input.
 
 ### How to Contribute
 
@@ -144,16 +144,16 @@ For detailed contribution guidelines, refer to `CONTRIBUTING.md`.
 
 ## Community and Support
 
-- **Documentation**: Comprehensive docs are available at [servo.Servo Docs](https://docs.example.com).
-- **Community Forums**: Join discussions at [servo.Servo Forums](https://forum.example.com).
-- **Issue Tracker**: Report bugs or request features at [servo.Servo GitHub Issues](https://github.com/servo/issues).
+- **Documentation**: Comprehensive docs are available at [Servo Docs](https://docs.servolang.com).
+- **Community Forums**: Join discussions at [Servo Forums](https://forum.servolang.com).
+- **Issue Tracker**: Report bugs or request features at [Servo GitHub Issues](https://github.com/ServoLang/Servo/issues).
 
 ---
 
 ## License
 
-servo.Servo is licensed under the MIT License. See `LICENSE.md` for more details.
+Servo is licensed under the MIT License. See `LICENSE.md` for more details.
 
 ---
 
-Happy coding with servo.Servo! 🚀
+Happy coding with Servo! 🚀
