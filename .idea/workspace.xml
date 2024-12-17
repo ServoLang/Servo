@@ -3,58 +3,92 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+  </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="Servo" targetName="Servo" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8bd7a9a-44f8-4c27-9294-88272943b6c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Math.svo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test.svo" afterDir="false" />
+    <list default="true" id="8d1b886b-d2e1-4640-be9f-af758da6952c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Servo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/chunk.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/chunk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/common.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/debug.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/debug.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/main.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/memory.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/memory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/value.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/value.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/vm.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/servo/vm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestClass.svo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/Resolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/Servo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/Servo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/ast/Expr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/ast/Expr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/ast/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/ast/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/env/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/env/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/Resolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/Servo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/ast/Expr.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/ast/Stmt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/classes/ServoInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/env/Environment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/error/RuntimeError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/exception/Return.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/functions/ServoCallable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/functions/ServoFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/parser/Parser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/token/Token.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/token/TokenType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;SuperScary&quot;
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "SuperScary"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ServoLang/Servo.git&quot;,
-    &quot;accountId&quot;: &quot;776c32bc-74a5-4396-a4ad-f94348caafe3&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ServoLang/Servo.git",
+    "accountId": "776c32bc-74a5-4396-a4ad-f94348caafe3"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/servo/ast/Expr.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/servo/ast/Stmt.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/servo/chunk.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/servo/chunk.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/servo/main.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/servo/memory.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/servo/memory.h" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2qEKQrMIcP485KmrHUvDiIcNfUL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -64,110 +98,63 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.AstPrinter.executor": "Run",
-    "Application.GenerateAst.executor": "Run",
-    "Application.Servo.executor": "Run",
+    "CMake Application.Servo.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
     "git-widget-placeholder": "jServo",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/wylan/Documents/Projects/ServoLang/Servo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/wylan/Documents/Projects/ServoLang/Servo/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "onboarding.tips.debug.path": "/home/wylan/Documents/Projects/ServoLang/Servo/main.cpp",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/servo" />
+      <recent name="$PROJECT_DIR$/servo/memory" />
+      <recent name="$PROJECT_DIR$/servo/chunk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Servo">
-    <configuration name="AstPrinter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="servo.ast.AstPrinter" />
-      <module name="Servo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="servo.ast.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenerateAst" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="servo.tool.GenerateAst" />
-      <module name="Servo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="servo.tool.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="Servo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Servo" TARGET_NAME="Servo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Servo" RUN_TARGET_NAME="Servo">
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Servo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="servo.Servo" />
-      <module name="Servo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="servo.token.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.AstPrinter" />
-      <item itemvalue="Application.GenerateAst" />
-      <item itemvalue="Application.Servo" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Servo" />
-        <item itemvalue="Application.GenerateAst" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f8bd7a9a-44f8-4c27-9294-88272943b6c2" name="Changes" comment="" />
-      <created>1734222281738</created>
+      <changelist id="8d1b886b-d2e1-4640-be9f-af758da6952c" name="Changes" comment="" />
+      <created>1734380535679</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1734222281738</updated>
-      <workItem from="1734222282856" duration="5850000" />
-      <workItem from="1734229694366" duration="37846000" />
+      <updated>1734380535679</updated>
+      <workItem from="1734380537188" duration="11647000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
   </component>
 </project>
