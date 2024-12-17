@@ -31,6 +31,9 @@ void push(Value value) {
         vm.stackCapacity = GROW_CAPACITY(oldCapacity);
         vm.stack = GROW_ARRAY(Value, vm.stack, oldCapacity, vm.stackCapacity);
     }
+
+    vm.stack[vm.stackCount] = value;
+    vm.stackCount++;
 }
 
 Value pop() {

@@ -24,42 +24,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d1b886b-d2e1-4640-be9f-af758da6952c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Servo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/chunk.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/chunk.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/common.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/debug.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/debug.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/main.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/memory.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/memory.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/value.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/value.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/vm.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servo/vm.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/Resolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/Servo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/ast/Expr.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/ast/Stmt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/classes/ServoClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/classes/ServoInstance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/env/Environment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/error/RuntimeError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/exception/Return.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/functions/ServoCallable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/functions/ServoFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/interpreter/Interpreter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/parser/Parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/scanner/Scanner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/token/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/token/TokenType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servo/tool/GenerateAst.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Servo.dir/servo/vm.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Servo.dir/servo/vm.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Servo" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Servo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servo/vm.c" beforeDir="false" afterPath="$PROJECT_DIR$/servo/vm.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +78,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "jServo",
+    "git-widget-placeholder": "cServo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -145,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734380535679</updated>
-      <workItem from="1734380537188" duration="11647000" />
+      <workItem from="1734380537188" duration="12023000" />
     </task>
     <servers />
   </component>
