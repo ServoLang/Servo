@@ -14,4 +14,8 @@ add_executable(Servo servo/main.c
         servo/value.c
         servo/value.h
         servo/vm.c
-        servo/vm.h)
+        servo/vm.h
+        servo/compiler.c
+        servo/compiler.h
+        servo/scanner.c
+        servo/scanner.h)

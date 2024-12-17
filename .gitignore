@@ -27,3 +27,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+cmake-build-debug/
