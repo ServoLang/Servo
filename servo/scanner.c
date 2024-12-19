@@ -205,6 +205,14 @@ Token scanToken() {
         case '*': return makeToken(TOKEN_STAR);
         case '%': return makeToken(TOKEN_MOD);
         case '^': return makeToken(TOKEN_POW);
+        case '?': {
+            if (match('=')) {
+                return makeToken(TOKEN_NULL_ASSIGNMENT);
+            }
+            if (match('?') && match('=')) {
+                return makeToken(TOKEN_NULLISH_ASSIGNMENT);
+            }
+        }
         case '!':
             return makeToken(match('=') ? TOKEN_BANG_EQUAL : TOKEN_BANG);
         case '=':
